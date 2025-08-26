@@ -2,8 +2,15 @@ import { useState } from "react";
 import './App.css';
 import topicsData from './topics.json';
 import animeData from '../anime/anime-data.json';
+import narutoData from '../anime/naruto-characters.json';
+import onePieceData from '../anime/one-piece-characters.json';
 
-const topics = { ...topicsData, "Anime": animeData.Anime };
+const topics = { 
+  ...topicsData, 
+  "Anime": animeData.Anime,
+  "Naruto Characters": narutoData.characters,
+  "One Piece Characters": onePieceData.characters
+};
  
 const RANKING_SIZE = 10;
 

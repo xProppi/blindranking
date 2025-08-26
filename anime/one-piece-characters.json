@@ -1,0 +1,124 @@
+{
+  "characters": [
+    {
+      "name": "Monkey D. Luffy",
+      "image": "./one-piece-characters/monkey-d-luffy.jpg"
+    },
+    {
+      "name": "Roronoa Zoro",
+      "image": "./one-piece-characters/roronoa-zoro.jpg"
+    },
+    {
+      "name": "Nami",
+      "image": "./one-piece-characters/nami.jpg"
+    },
+    {
+      "name": "Usopp",
+      "image": "./one-piece-characters/usopp.jpg"
+    },
+    {
+      "name": "Sanji",
+      "image": "./one-piece-characters/sanji.jpg"
+    },
+    {
+      "name": "Tony Tony Chopper",
+      "image": "./one-piece-characters/tony-tony-chopper.jpg"
+    },
+    {
+      "name": "Nico Robin",
+      "image": "./one-piece-characters/nico-robin.jpg"
+    },
+    {
+      "name": "Franky",
+      "image": "./one-piece-characters/franky.jpg"
+    },
+    {
+      "name": "Brook",
+      "image": "./one-piece-characters/brook.jpg"
+    },
+    {
+      "name": "Jinbe",
+      "image": "./one-piece-characters/jinbe.jpg"
+    },
+    {
+      "name": "Portgas D. Ace",
+      "image": "./one-piece-characters/portgas-d-ace.jpg"
+    },
+    {
+      "name": "Sabo",
+      "image": "./one-piece-characters/sabo.jpg"
+    },
+    {
+      "name": "Shanks",
+      "image": "./one-piece-characters/shanks.jpg"
+    },
+    {
+      "name": "Trafalgar D. Water Law",
+      "image": "./one-piece-characters/trafalgar-d-water-law.jpg"
+    },
+    {
+      "name": "Boa Hancock",
+      "image": "./one-piece-characters/boa-hancock.jpg"
+    },
+    {
+      "name": "Dracule Mihawk",
+      "image": "./one-piece-characters/dracule-mihawk.jpg"
+    },
+    {
+      "name": "Edward Newgate",
+      "image": "./one-piece-characters/edward-newgate.jpg"
+    },
+    {
+      "name": "Charlotte Katakuri",
+      "image": "./one-piece-characters/charlotte-katakuri.jpg"
+    },
+    {
+      "name": "Kaido",
+      "image": "./one-piece-characters/kaido.jpg"
+    },
+    {
+      "name": "Charlotte Linlin",
+      "image": "./one-piece-characters/charlotte-linlin.jpg"
+    },
+    {
+      "name": "Marshall D. Teach",
+      "image": "./one-piece-characters/marshall-d-teach.jpg"
+    },
+    {
+      "name": "Donquixote Doflamingo",
+      "image": "./one-piece-characters/donquixote-doflamingo.jpg"
+    },
+    {
+      "name": "Crocodile",
+      "image": "./one-piece-characters/crocodile.jpg"
+    },
+    {
+      "name": "Enel",
+      "image": "./one-piece-characters/enel.jpg"
+    },
+    {
+      "name": "Rob Lucci",
+      "image": "./one-piece-characters/rob-lucci.jpg"
+    },
+    {
+      "name": "Bartholomew Kuma",
+      "image": null
+    },
+    {
+      "name": "Buggy",
+      "image": "./one-piece-characters/buggy.jpg"
+    },
+    {
+      "name": "Smoker",
+      "image": "./one-piece-characters/smoker.jpg"
+    },
+    {
+      "name": "Tashigi",
+      "image": null
+    },
+    {
+      "name": "Koby",
+      "image": "./one-piece-characters/koby.jpg"
+    }
+  ]
+}
