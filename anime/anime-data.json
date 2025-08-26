@@ -1,0 +1,172 @@
+{
+  "Anime": [
+    {
+      "name": "One Piece",
+      "image": "./anime-images/one-piece.jpg"
+    },
+    {
+      "name": "Attack On Titan",
+      "image": "./anime-images/attack-on-titan.jpg"
+    },
+    {
+      "name": "Demon Slayer",
+      "image": "./anime-images/demon-slayer.jpg"
+    },
+    {
+      "name": "Death Note",
+      "image": "./anime-images/death-note.jpg"
+    },
+    {
+      "name": "Naruto Shippuden",
+      "image": "./anime-images/naruto-shippuden.jpg"
+    },
+    {
+      "name": "Fullmetal Alchemist Brotherhood",
+      "image": "./anime-images/fullmetal-alchemist.jpg"
+    },
+    {
+      "name": "Jujutsu Kaisen",
+      "image": "./anime-images/jujutsu-kaisen.jpg"
+    },
+    {
+      "name": "Hunter X Hunter",
+      "image": "./anime-images/hunter-x-hunter.jpg"
+    },
+    {
+      "name": "Haikyu",
+      "image": "./anime-images/haikyu.jpg"
+    },
+    {
+      "name": "Dragon Ball Z",
+      "image": "./anime-images/dragon-ball-z.jpg"
+    },
+    {
+      "name": "Code Geass",
+      "image": "./anime-images/code-geass.jpg"
+    },
+    {
+      "name": "Sword Art Online",
+      "image": "./anime-images/sword-art-online.jpg"
+    },
+    {
+      "name": "My Hero Academia",
+      "image": "./anime-images/my-hero-academia.jpg"
+    },
+    {
+      "name": "Bleach",
+      "image": "./anime-images/bleach.jpg"
+    },
+    {
+      "name": "One Punch Man",
+      "image": "./anime-images/one-punch-man.jpg"
+    },
+    {
+      "name": "Naruto",
+      "image": "./anime-images/naruto.jpg"
+    },
+    {
+      "name": "Steins Gate",
+      "image": "./anime-images/steins-gate.jpg"
+    },
+    {
+      "name": "Neon Genesis Evangelion",
+      "image": "./anime-images/neon-genesis-evangelion.jpg"
+    },
+    {
+      "name": "Black Clover",
+      "image": "./anime-images/black-clover.jpg"
+    },
+    {
+      "name": "JoJo's Bizarre Adventure",
+      "image": "./anime-images/jojos-bizarre-adventure.jpg"
+    },
+    {
+      "name": "Assassination Classroom",
+      "image": "./anime-images/assassination-classroom.jpg"
+    },
+    {
+      "name": "Dr. Stone",
+      "image": "./anime-images/dr-stone.jpg"
+    },
+    {
+      "name": "Tokyo Revengers",
+      "image": "./anime-images/tokyo-revengers.jpg"
+    },
+    {
+      "name": "Vinland Saga",
+      "image": "./anime-images/vinland-saga.jpg"
+    },
+    {
+      "name": "Akame ga Kill",
+      "image": "./anime-images/akame-ga-kill.jpg"
+    },
+    {
+      "name": "Made in Abyss",
+      "image": "./anime-images/made-in-abyss.jpg"
+    },
+    {
+      "name": "Fate/Zero",
+      "image": "./anime-images/fatezero.jpg"
+    },
+    {
+      "name": "Dragon Ball Super",
+      "image": "./anime-images/dragon-ball-super.jpg"
+    },
+    {
+      "name": "Death Parade",
+      "image": "./anime-images/death-parade.jpg"
+    },
+    {
+      "name": "The Seven Deadly Sins",
+      "image": "./anime-images/the-seven-deadly-sins.jpg"
+    },
+    {
+      "name": "Kuroko no Basket",
+      "image": "./anime-images/kuroko-no-basket.jpg"
+    },
+    {
+      "name": "Toradora!",
+      "image": "./anime-images/toradora.jpg"
+    },
+    {
+      "name": "Monster",
+      "image": "./anime-images/monster.jpg"
+    },
+    {
+      "name": "Fire Force",
+      "image": "./anime-images/fire-force.jpg"
+    },
+    {
+      "name": "Noragami",
+      "image": "./anime-images/noragami.jpg"
+    },
+    {
+      "name": "Classroom of the Elite",
+      "image": "./anime-images/classroom-of-the-elite.jpg"
+    },
+    {
+      "name": "Bunny Girl Senpai",
+      "image": "./anime-images/bunny-girl-senpai.jpg"
+    },
+    {
+      "name": "Berserk",
+      "image": "./anime-images/berserk.jpg"
+    },
+    {
+      "name": "Black Butler",
+      "image": "./anime-images/black-butler.jpg"
+    },
+    {
+      "name": "Blue Exorcist",
+      "image": "./anime-images/blue-exorcist.jpg"
+    },
+    {
+      "name": "Fullmetal Alchemist",
+      "image": "./anime-images/fullmetal-alchemist.jpg"
+    },
+    {
+      "name": "The Promised Neverland",
+      "image": "./anime-images/the-promised-neverland.jpg"
+    }
+  ]
+}

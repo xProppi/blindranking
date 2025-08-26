@@ -1,45 +1,10 @@
 import { useState } from "react";
 import './App.css';
+import topicsData from './topics.json';
+import animeData from '../anime/anime-data.json';
 
-const topics = {
-  Filme: [
-    { name: "Inception", image: "https://images.unsplash.com/photo-1489599663317-3e54fda2c85b?w=150&h=150&fit=crop" },
-    { name: "Matrix", image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=150&h=150&fit=crop" },
-    { name: "Shrek", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=150&h=150&fit=crop" },
-    { name: "Interstellar", image: "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=150&h=150&fit=crop" },
-    { name: "Gladiator", image: "https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?w=150&h=150&fit=crop" }
-  ],
-  Essen: [
-    { name: "Pizza", image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=150&h=150&fit=crop" },
-    { name: "Burger", image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=150&h=150&fit=crop" },
-    { name: "Sushi", image: "https://images.unsplash.com/photo-1553621042-f6e147245754?w=150&h=150&fit=crop" },
-    { name: "Tacos", image: "https://images.unsplash.com/photo-1565299585323-38174c7a8bda?w=150&h=150&fit=crop" },
-    { name: "Pasta", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=150&h=150&fit=crop" }
-  ],
-  Pokemon: [
-    { name: "Bisasam", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" },
-    { name: "Bisaknosp", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png" },
-    { name: "Bisaflor", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png" },
-    { name: "Glumanda", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" },
-    { name: "Glutexo", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png" },
-    { name: "Glurak", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" },
-    { name: "Schiggy", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" },
-    { name: "Schillok", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png" },
-    { name: "Turtok", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png" },
-    { name: "Raupy", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png" },
-    { name: "Safcon", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/11.png" },
-    { name: "Smettbo", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png" },
-    { name: "Hornliu", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/13.png" },
-    { name: "Kokuna", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/14.png" },
-    { name: "Bibor", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/15.png" },
-    { name: "Taubsi", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/16.png" },
-    { name: "Tauboga", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png" },
-    { name: "Tauboss", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png" },
-    { name: "Rattfratz", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/19.png" },
-    { name: "Rattikarl", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png" }
-  ]
-};
-
+const topics = { ...topicsData, "Anime": animeData.Anime };
+ 
 const RANKING_SIZE = 10;
 
 export default function App() {
