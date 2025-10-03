@@ -12,7 +12,7 @@ import dsData from '../games/ds.json';
 import metaData from '../games/meta.json';
 
 const topics = {
-  ...topicsData,
+  
   "Anime": animeData.Anime,
   "Naruto Characters": narutoData.characters,
   "One Piece Characters": onePieceData.characters,
@@ -22,7 +22,8 @@ const topics = {
   "Nintendo DS Best-Sellers": dsData.games,
   "Highest Rated Games (Metacritic)": metaData.games,
   "Kinderserien": seriedata.kinderserien,
-  "Teufelsfrüchte": fruitsdata.fruits
+  "Teufelsfrüchte": fruitsdata.fruits,
+  ...topicsData
 };
 
 const RANKING_SIZE = 10;
