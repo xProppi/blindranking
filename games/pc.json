@@ -1,0 +1,124 @@
+{
+  "games": [
+    {
+      "name": "Minecraft",
+      "image": "https://media.rawg.io/media/games/b4e/b4e4c73d5aa4ec66bbf75375c4847a2b.jpg"
+    },
+    {
+      "name": "PUBG Battlegrounds",
+      "image": "https://media.rawg.io/media/games/1bd/1bd2657b81eb0c99338120ad444b24ff.jpg"
+    },
+    {
+      "name": "Counter-Strike Global Offensive",
+      "image": "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg"
+    },
+    {
+      "name": "Grand Theft Auto V",
+      "image": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg"
+    },
+    {
+      "name": "The Sims 4",
+      "image": "https://media.rawg.io/media/games/e44/e445335e611b4ccf03af71fffcbd30a4.jpg"
+    },
+    {
+      "name": "Half-Life 2",
+      "image": "https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg"
+    },
+    {
+      "name": "World of Warcraft",
+      "image": "https://media.rawg.io/media/games/0d9/0d930ea604ee240c5af30c58f73ddf48.jpg"
+    },
+    {
+      "name": "Terraria",
+      "image": "https://media.rawg.io/media/games/f46/f466571d536f2e3ea9e815ad17177501.jpg"
+    },
+    {
+      "name": "Diablo III",
+      "image": "https://media.rawg.io/media/games/a27/a275556fab1a6acaded4cedad0f9dc80.jpg"
+    },
+    {
+      "name": "The Witcher 3 Wild Hunt",
+      "image": "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg"
+    },
+    {
+      "name": "League of Legends",
+      "image": "https://media.rawg.io/media/games/78b/78bc81e247fc7e77af700cbd632a9297.jpg"
+    },
+    {
+      "name": "StarCraft II",
+      "image": "https://media.rawg.io/media/games/960/9605c08bf8535c00adbb0a3896f0c484.jpg"
+    },
+    {
+      "name": "The Sims 3",
+      "image": "https://media.rawg.io/media/games/369/36914d895c20e35f273286145c267764.jpg"
+    },
+    {
+      "name": "Fallout 4",
+      "image": "https://media.rawg.io/media/games/d82/d82990b9c67ba0d2d09d4e6fa88885a7.jpg"
+    },
+    {
+      "name": "The Elder Scrolls V Skyrim",
+      "image": "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg"
+    },
+    {
+      "name": "Garry's Mod",
+      "image": "https://media.rawg.io/media/games/48c/48cb04ca483be865e3a83119c94e6097.jpg"
+    },
+    {
+      "name": "Counter-Strike",
+      "image": "https://media.rawg.io/media/games/9c4/9c47f320eb73c9a02d462e12f6206b26.jpg"
+    },
+    {
+      "name": "Overwatch",
+      "image": "https://media.rawg.io/media/games/4ea/4ea507ceebeabb43edbc09468f5aaac6.jpg"
+    },
+    {
+      "name": "Portal 2",
+      "image": "https://media.rawg.io/media/games/2ba/2bac0e87cf45e5b508f227d281c9252a.jpg"
+    },
+    {
+      "name": "Rust",
+      "image": "https://media.rawg.io/media/games/447/4470c1e76f01acfaf5af9c207d1c1c92.jpg"
+    },
+    {
+      "name": "Dota 2",
+      "image": "https://media.rawg.io/media/games/6fc/6fcf4cd3b17c288821388e6085bb0fc9.jpg"
+    },
+    {
+      "name": "Fallout 3",
+      "image": "https://media.rawg.io/media/games/5a4/5a4e70bb8a862829dbaa398aa5f66afc.jpg"
+    },
+    {
+      "name": "Left 4 Dead 2",
+      "image": "https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg"
+    },
+    {
+      "name": "Civilization V",
+      "image": "https://media.rawg.io/media/games/55e/55ee6432ac2bf224610fa17e4c652107.jpg"
+    },
+    {
+      "name": "Rocket League",
+      "image": "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg"
+    },
+    {
+      "name": "ARK Survival Evolved",
+      "image": "https://media.rawg.io/media/games/58a/58ac7f6569259dcc0b60b921869b19fc.jpg"
+    },
+    {
+      "name": "7 Days to Die",
+      "image": "https://media.rawg.io/media/games/5cb/5cbbc5cd24677331c85253f961cad72a.jpg"
+    },
+    {
+      "name": "Payday 2",
+      "image": "https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg"
+    },
+    {
+      "name": "DayZ",
+      "image": "https://media.rawg.io/media/games/7d7/7d7c89793578f721df56022c6cf53bb0.jpg"
+    },
+    {
+      "name": "Total War Warhammer II",
+      "image": "https://media.rawg.io/media/games/a20/a20d2e07179b4a71dd5276a5c4cc0f61.jpg"
+    }
+  ]
+}

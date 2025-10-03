@@ -1,0 +1,124 @@
+{
+  "games": [
+    {
+      "name": "Wii Sports",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wzo.jpg"
+    },
+    {
+      "name": "Super Mario Bros.",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3mvr.jpg"
+    },
+    {
+      "name": "Mario Kart 8 / Deluxe",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p1i.jpg"
+    },
+    {
+      "name": "Wii Sports Resort",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wx5.jpg"
+    },
+    {
+      "name": "Pokémon Red/Blue/Green",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co49vj.jpg"
+    },
+    {
+      "name": "Tetris (Game Boy)",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co49vz.jpg"
+    },
+    {
+      "name": "New Super Mario Bros.",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1vr9.jpg"
+    },
+    {
+      "name": "New Super Mario Bros. Wii",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1vrc.jpg"
+    },
+    {
+      "name": "Animal Crossing: New Horizons",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s6d.jpg"
+    },
+    {
+      "name": "Super Mario World",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3mvs.jpg"
+    },
+    {
+      "name": "Super Smash Bros. Ultimate",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1rbo.jpg"
+    },
+    {
+      "name": "Pokémon Gold/Silver",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4zcg.jpg"
+    },
+    {
+      "name": "The Legend of Zelda: Breath of the Wild",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.jpg"
+    },
+    {
+      "name": "Wii Play",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1y6p.jpg"
+    },
+    {
+      "name": "Mario Kart Wii",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1vg0.jpg"
+    },
+    {
+      "name": "Pokémon Diamond/Pearl",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1x0t.jpg"
+    },
+    {
+      "name": "Super Mario Bros. 3",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3mvp.jpg"
+    },
+    {
+      "name": "Pokémon Sword/Shield",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1u87.jpg"
+    },
+    {
+      "name": "Mario Kart DS",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1vfx.jpg"
+    },
+    {
+      "name": "Super Mario 64",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co49vo.jpg"
+    },
+    {
+      "name": "Wii Fit / Wii Fit Plus",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wxz.jpg"
+    },
+    {
+      "name": "Nintendogs",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co20xn.jpg"
+    },
+    {
+      "name": "Pokémon Ruby/Sapphire",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5z5t.jpg"
+    },
+    {
+      "name": "Super Mario Galaxy",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1vjq.jpg"
+    },
+    {
+      "name": "Super Mario Land",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3vmx.jpg"
+    },
+    {
+      "name": "Super Mario Odyssey",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2w.jpg"
+    },
+    {
+      "name": "Pokémon Sun/Moon",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co27ll.jpg"
+    },
+    {
+      "name": "Pokémon Scarlet/Violet",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s81.jpg"
+    },
+    {
+      "name": "The Legend of Zelda: Tears of the Kingdom",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vmg.jpg"
+    },
+    {
+      "name": "Super Smash Bros. Brawl",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1vgh.jpg"
+    }
+  ]
+}

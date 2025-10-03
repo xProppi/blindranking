@@ -1,0 +1,336 @@
+import React, { useState, useEffect } from 'react';
+import { Download, RefreshCw } from 'lucide-react';
+
+const GameCoverFetcher = () => {
+  const [selectedFile, setSelectedFile] = useState('nintendo');
+  const [games, setGames] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState({ current: 0, total: 0 });
+  const [updatedGames, setUpdatedGames] = useState([]);
+
+  const gameData = {
+    nintendo: [
+      { name: "Wii Sports" },
+      { name: "Super Mario Bros." },
+      { name: "Mario Kart 8 Deluxe" },
+      { name: "Wii Sports Resort" },
+      { name: "Pokemon Red Blue Green" },
+      { name: "Tetris Game Boy" },
+      { name: "New Super Mario Bros." },
+      { name: "New Super Mario Bros. Wii" },
+      { name: "Animal Crossing New Horizons" },
+      { name: "Super Mario World" },
+      { name: "Super Smash Bros. Ultimate" },
+      { name: "Pokemon Gold Silver" },
+      { name: "The Legend of Zelda Breath of the Wild" },
+      { name: "Wii Play" },
+      { name: "Mario Kart Wii" },
+      { name: "Pokemon Diamond Pearl" },
+      { name: "Super Mario Bros. 3" },
+      { name: "Pokemon Sword Shield" },
+      { name: "Mario Kart DS" },
+      { name: "Super Mario 64" },
+      { name: "Wii Fit Plus" },
+      { name: "Nintendogs" },
+      { name: "Pokemon Ruby Sapphire" },
+      { name: "Super Mario Galaxy" },
+      { name: "Super Mario Land" },
+      { name: "Super Mario Odyssey" },
+      { name: "Pokemon Sun Moon" },
+      { name: "Pokemon Scarlet Violet" },
+      { name: "The Legend of Zelda Tears of the Kingdom" },
+      { name: "Super Smash Bros. Brawl" }
+    ],
+    pc: [
+      { name: "Minecraft" },
+      { name: "PUBG Battlegrounds" },
+      { name: "Counter-Strike Global Offensive" },
+      { name: "Grand Theft Auto V" },
+      { name: "The Sims 4" },
+      { name: "Half-Life 2" },
+      { name: "World of Warcraft" },
+      { name: "Terraria" },
+      { name: "Diablo III" },
+      { name: "The Witcher 3 Wild Hunt" },
+      { name: "League of Legends" },
+      { name: "StarCraft II" },
+      { name: "The Sims 3" },
+      { name: "Fallout 4" },
+      { name: "The Elder Scrolls V Skyrim" },
+      { name: "Garry's Mod" },
+      { name: "Counter-Strike" },
+      { name: "Overwatch" },
+      { name: "Portal 2" },
+      { name: "Rust" },
+      { name: "Dota 2" },
+      { name: "Fallout 3" },
+      { name: "Left 4 Dead 2" },
+      { name: "Civilization V" },
+      { name: "Rocket League" },
+      { name: "ARK Survival Evolved" },
+      { name: "7 Days to Die" },
+      { name: "Payday 2" },
+      { name: "DayZ" },
+      { name: "Total War Warhammer II" }
+    ],
+    wii: [
+      { name: "Wii Sports" },
+      { name: "Mario Kart Wii" },
+      { name: "Wii Sports Resort" },
+      { name: "New Super Mario Bros. Wii" },
+      { name: "Wii Play" },
+      { name: "Wii Fit" },
+      { name: "Wii Fit Plus" },
+      { name: "Super Smash Bros. Brawl" },
+      { name: "Super Mario Galaxy" },
+      { name: "Just Dance 3" },
+      { name: "Just Dance 2" },
+      { name: "The Legend of Zelda Twilight Princess" },
+      { name: "Mario Party 8" },
+      { name: "Super Mario Galaxy 2" },
+      { name: "Wii Party" },
+      { name: "Link's Crossbow Training" },
+      { name: "Just Dance" },
+      { name: "Animal Crossing City Folk" },
+      { name: "Guitar Hero III Legends of Rock" },
+      { name: "Donkey Kong Country Returns" },
+      { name: "The Legend of Zelda Skyward Sword" },
+      { name: "Mario & Sonic at the Olympic Games" },
+      { name: "Wii Music" },
+      { name: "Kirby's Epic Yarn" },
+      { name: "Big Brain Academy Wii Degree" },
+      { name: "Wii Sports Club" },
+      { name: "Carnival Games" },
+      { name: "LEGO Star Wars The Complete Saga" },
+      { name: "Michael Jackson The Experience" },
+      { name: "Guitar Hero World Tour" }
+    ],
+    ds: [
+      { name: "New Super Mario Bros." },
+      { name: "Nintendogs" },
+      { name: "Mario Kart DS" },
+      { name: "Brain Age Train Your Brain" },
+      { name: "Pokemon Diamond Pearl" },
+      { name: "Pokemon Black White" },
+      { name: "Brain Age 2 More Training" },
+      { name: "Super Mario 64 DS" },
+      { name: "Pokemon HeartGold SoulSilver" },
+      { name: "Pokemon Platinum" },
+      { name: "Mario Party DS" },
+      { name: "The Legend of Zelda Phantom Hourglass" },
+      { name: "Animal Crossing Wild World" },
+      { name: "Mario & Luigi Bowser's Inside Story" },
+      { name: "The Legend of Zelda Spirit Tracks" },
+      { name: "Pokemon Black 2 White 2" },
+      { name: "Cooking Mama" },
+      { name: "Kirby Super Star Ultra" },
+      { name: "LEGO Star Wars The Complete Saga" },
+      { name: "Mario & Luigi Partners in Time" },
+      { name: "Scribblenauts" },
+      { name: "Yoshi's Island DS" },
+      { name: "Donkey Kong Jungle Climber" },
+      { name: "Big Brain Academy" },
+      { name: "Star Fox Command" },
+      { name: "Sonic Rush" },
+      { name: "Professor Layton and the Curious Village" },
+      { name: "Kirby Canvas Curse" },
+      { name: "Advance Wars Dual Strike" },
+      { name: "Wario Master of Disguise" }
+    ],
+    meta: [
+      { name: "The Legend of Zelda Breath of the Wild" },
+      { name: "Grand Theft Auto V" },
+      { name: "The Last of Us" },
+      { name: "Red Dead Redemption 2" },
+      { name: "Mass Effect 2" },
+      { name: "The Elder Scrolls V Skyrim" },
+      { name: "Super Mario Galaxy" },
+      { name: "Super Mario Galaxy 2" },
+      { name: "BioShock" },
+      { name: "Portal 2" },
+      { name: "Uncharted 2 Among Thieves" },
+      { name: "The Witcher 3 Wild Hunt" },
+      { name: "God of War" },
+      { name: "The Last of Us Part II" },
+      { name: "Batman Arkham City" },
+      { name: "Half-Life 2 Episode Two" },
+      { name: "Red Dead Redemption" },
+      { name: "Elden Ring" },
+      { name: "Baldur's Gate 3" },
+      { name: "Halo 3" },
+      { name: "Dark Souls" },
+      { name: "Metal Gear Solid V The Phantom Pain" },
+      { name: "Persona 5 Royal" },
+      { name: "The Legend of Zelda Tears of the Kingdom" },
+      { name: "Bloodborne" },
+      { name: "Metroid Prime" },
+      { name: "Super Smash Bros. Ultimate" },
+      { name: "Disco Elysium" },
+      { name: "Dark Souls III" },
+      { name: "Resident Evil 4 2023" }
+    ]
+  };
+
+  const searchGameImage = async (gameName) => {
+    try {
+      const cleanName = gameName.replace(/[/:]/g, '');
+      const response = await fetch(
+        `https://api.rawg.io/api/games?search=${encodeURIComponent(cleanName)}&page_size=1`
+      );
+      const data = await response.json();
+      
+      if (data.results && data.results.length > 0) {
+        return data.results[0].background_image || null;
+      }
+      return null;
+    } catch (error) {
+      console.error(`Error fetching image for ${gameName}:`, error);
+      return null;
+    }
+  };
+
+  const fetchAllImages = async () => {
+    setLoading(true);
+    setUpdatedGames([]);
+    const currentGames = gameData[selectedFile];
+    setProgress({ current: 0, total: currentGames.length });
+
+    const results = [];
+    
+    for (let i = 0; i < currentGames.length; i++) {
+      const game = currentGames[i];
+      const image = await searchGameImage(game.name);
+      
+      results.push({
+        name: game.name,
+        image: image || 'https://via.placeholder.com/264x352?text=No+Image'
+      });
+      
+      setProgress({ current: i + 1, total: currentGames.length });
+      setUpdatedGames([...results]);
+      
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
+
+    setLoading(false);
+  };
+
+  const downloadJSON = () => {
+    const jsonData = {
+      games: updatedGames
+    };
+    
+    const blob = new Blob([JSON.stringify(jsonData, null, 2)], { 
+      type: 'application/json' 
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${selectedFile}_updated.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  useEffect(() => {
+    setGames(gameData[selectedFile]);
+    setUpdatedGames([]);
+  }, [selectedFile]);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 p-8">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold text-white mb-8 text-center">
+          🎮 Game Cover Image Fetcher
+        </h1>
+
+        <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 mb-8">
+          <div className="flex flex-wrap gap-4 items-center justify-between">
+            <div className="flex gap-4 items-center">
+              <label className="text-white font-semibold">Select Collection:</label>
+              <select
+                value={selectedFile}
+                onChange={(e) => setSelectedFile(e.target.value)}
+                className="px-4 py-2 rounded-lg bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                disabled={loading}
+              >
+                <option value="nintendo">Nintendo Games</option>
+                <option value="pc">PC Games</option>
+                <option value="wii">Wii Games</option>
+                <option value="ds">DS Games</option>
+                <option value="meta">Meta/Highest Rated</option>
+              </select>
+            </div>
+
+            <div className="flex gap-4">
+              <button
+                onClick={fetchAllImages}
+                disabled={loading}
+                className="px-6 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 text-white rounded-lg font-semibold flex items-center gap-2 transition"
+              >
+                <RefreshCw className={loading ? 'animate-spin' : ''} size={20} />
+                {loading ? 'Fetching...' : 'Fetch Images'}
+              </button>
+
+              {updatedGames.length > 0 && !loading && (
+                <button
+                  onClick={downloadJSON}
+                  className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold flex items-center gap-2 transition"
+                >
+                  <Download size={20} />
+                  Download JSON
+                </button>
+              )}
+            </div>
+          </div>
+
+          {loading && (
+            <div className="mt-4">
+              <div className="w-full bg-gray-700 rounded-full h-4">
+                <div
+                  className="bg-purple-600 h-4 rounded-full transition-all duration-300"
+                  style={{ width: `${(progress.current / progress.total) * 100}%` }}
+                />
+              </div>
+              <p className="text-white text-center mt-2">
+                {progress.current} / {progress.total} games processed
+              </p>
+            </div>
+          )}
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {(updatedGames.length > 0 ? updatedGames : games).map((game, index) => (
+            <div
+              key={index}
+              className="bg-white/10 backdrop-blur-lg rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
+            >
+              <div className="aspect-[3/4] bg-gray-800 flex items-center justify-center">
+                {game.image ? (
+                  <img
+                    src={game.image}
+                    alt={game.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.src = 'https://via.placeholder.com/264x352?text=No+Image';
+                    }}
+                  />
+                ) : (
+                  <div className="text-gray-600 text-6xl">🎮</div>
+                )}
+              </div>
+              <div className="p-3">
+                <p className="text-white text-sm font-medium line-clamp-2">
+                  {game.name}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default GameCoverFetcher;

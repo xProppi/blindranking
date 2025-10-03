@@ -1,0 +1,116 @@
+{
+  "characters": [
+    {
+      "name": "Uzumaki Naruto",
+      "image": "./naruto-characters/uzumaki-naruto.jpg"
+    },
+    {
+      "name": "Uchiha Sasuke",
+      "image": "./naruto-characters/uchiha-sasuke.jpg"
+    },
+    {
+      "name": "Haruno Sakura",
+      "image": "./naruto-characters/haruno-sakura.jpg"
+    },
+    {
+      "name": "Hatake Kakashi",
+      "image": "./naruto-characters/hatake-kakashi.jpg"
+    },
+    {
+      "name": "Uchiha Itachi",
+      "image": "./naruto-characters/uchiha-itachi.jpg"
+    },
+    {
+      "name": "Uchiha Madara",
+      "image": "./naruto-characters/uchiha-madara.jpg"
+    },
+    {
+      "name": "Senju Hashirama",
+      "image": "./naruto-characters/senju-hashirama.jpg"
+    },
+    {
+      "name": "Senju Tobirama",
+      "image": "./naruto-characters/senju-tobirama.jpg"
+    },
+    {
+      "name": "Namikaze Minato",
+      "image": "./naruto-characters/namikaze-minato.jpg"
+    },
+    {
+      "name": "Uzumaki Kushina",
+      "image": "./naruto-characters/uzumaki-kushina.jpg"
+    },
+    {
+      "name": "Jiraiya",
+      "image": "./naruto-characters/jiraiya.jpg"
+    },
+    {
+      "name": "Tsunade",
+      "image": "./naruto-characters/tsunade.jpg"
+    },
+    {
+      "name": "Orochimaru",
+      "image": "./naruto-characters/orochimaru.jpg"
+    },
+    {
+      "name": "Gaara",
+      "image": "./naruto-characters/gaara.jpg"
+    },
+    {
+      "name": "Rock Lee",
+      "image": "./naruto-characters/rock-lee.jpg"
+    },
+    {
+      "name": "Neji Hyuuga",
+      "image": "./naruto-characters/neji-hyuuga.jpg"
+    },
+    {
+      "name": "Hinata Hyuuga",
+      "image": "./naruto-characters/hinata-hyuuga.jpg"
+    },
+    {
+      "name": "Shikamaru Nara",
+      "image": "./naruto-characters/shikamaru-nara.jpg"
+    },
+    {
+      "name": "Choji Akimichi",
+      "image": "./naruto-characters/choji-akimichi.jpg"
+    },
+    {
+      "name": "Kiba Inuzuka",
+      "image": "./naruto-characters/kiba-inuzuka.jpg"
+    },
+    {
+      "name": "Tenten",
+      "image": "./naruto-characters/tenten.jpg"
+    },
+    {
+      "name": "Might Guy",
+      "image": "./naruto-characters/might-guy.jpg"
+    },
+    {
+      "name": "Asuma Sarutobi",
+      "image": "./naruto-characters/asuma-sarutobi.jpg"
+    },
+    {
+      "name": "Kurenai Yuhi",
+      "image": "./naruto-characters/kurenai-yuhi.jpg"
+    },
+    {
+      "name": "Sarutobi Hiruzen",
+      "image": "./naruto-characters/sarutobi-hiruzen.jpg"
+    },
+    {
+      "name": "Uchiha Obito",
+      "image": "./naruto-characters/uchiha-obito.jpg"
+    },
+    {
+      "name": "Pain",
+      "image": "./naruto-characters/pain.jpg"
+    },
+    {
+      "name": "Konan",
+      "image": "./naruto-characters/konan.jpg"
+    }
+  ]
+}

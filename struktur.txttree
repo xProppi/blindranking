@@ -1,0 +1,116 @@
+.
+├── README.md
+├── anime
+│   ├── anime-data.json
+│   ├── download-anime-images.js
+│   ├── naruto-characters.json
+│   ├── one-piece-characters.json
+│   └── package.json
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── public
+│   ├── anime-images
+│   │   ├── akame-ga-kill.jpg
+│   │   ├── assassination-classroom.jpg
+│   │   ├── attack-on-titan.jpg
+│   │   ├── berserk.jpg
+│   │   ├── black-clover.jpg
+│   │   ├── bleach.jpg
+│   │   ├── blue-exorcist.jpg
+│   │   ├── bunny-girl-senpai.jpg
+│   │   ├── classroom-of-the-elite.jpg
+│   │   ├── code-geass.jpg
+│   │   ├── death-note.jpg
+│   │   ├── demon-slayer.jpg
+│   │   ├── dragon-ball-super.jpg
+│   │   ├── dragon-ball-z.jpg
+│   │   ├── fatezero.jpg
+│   │   ├── fullmetal-alchemist.jpg
+│   │   ├── haikyu.jpg
+│   │   ├── horimiya.jpg
+│   │   ├── hunter-x-hunter.jpg
+│   │   ├── jujutsu-kaisen.jpg
+│   │   ├── naruto-shippuden.jpg
+│   │   ├── naruto.jpg
+│   │   ├── neon-genesis-evangelion.jpg
+│   │   ├── noragami.jpg
+│   │   ├── one-piece.jpg
+│   │   ├── steins-gate.jpg
+│   │   ├── the-promised-neverland.jpg
+│   │   ├── the-seven-deadly-sins.jpg
+│   │   ├── tokyo-revengers.jpg
+│   │   ├── toradora.jpg
+│   │   └── vinland-saga.jpg
+│   ├── naruto-characters
+│   │   ├── asuma-sarutobi.jpg
+│   │   ├── choji-akimichi.jpg
+│   │   ├── gaara.jpg
+│   │   ├── haruno-sakura.jpg
+│   │   ├── hatake-kakashi.jpg
+│   │   ├── hinata-hyuuga.jpg
+│   │   ├── jiraiya.jpg
+│   │   ├── kiba-inuzuka.jpg
+│   │   ├── konan.jpg
+│   │   ├── kurenai-yuhi.jpg
+│   │   ├── might-guy.jpg
+│   │   ├── namikaze-minato.jpg
+│   │   ├── neji-hyuuga.jpg
+│   │   ├── orochimaru.jpg
+│   │   ├── pain.jpg
+│   │   ├── rock-lee.jpg
+│   │   ├── sarutobi-hiruzen.jpg
+│   │   ├── senju-hashirama.jpg
+│   │   ├── senju-tobirama.jpg
+│   │   ├── shikamaru-nara.jpg
+│   │   ├── tenten.jpg
+│   │   ├── tsunade.jpg
+│   │   ├── uchiha-itachi.jpg
+│   │   ├── uchiha-madara.jpg
+│   │   ├── uchiha-obito.jpg
+│   │   ├── uchiha-sasuke.jpg
+│   │   ├── uzumaki-kushina.jpg
+│   │   └── uzumaki-naruto.jpg
+│   ├── one-piece-characters
+│   │   ├── boa-hancock.jpg
+│   │   ├── brook.jpg
+│   │   ├── buggy.jpg
+│   │   ├── charlotte-katakuri.jpg
+│   │   ├── charlotte-linlin.jpg
+│   │   ├── crocodile.jpg
+│   │   ├── donquixote-doflamingo.jpg
+│   │   ├── dracule-mihawk.jpg
+│   │   ├── edward-newgate.jpg
+│   │   ├── enel.jpg
+│   │   ├── franky.jpg
+│   │   ├── jinbe.jpg
+│   │   ├── kaido.jpg
+│   │   ├── koby.jpg
+│   │   ├── marshall-d-teach.jpg
+│   │   ├── monkey-d-luffy.jpg
+│   │   ├── nami.jpg
+│   │   ├── nico-robin.jpg
+│   │   ├── portgas-d-ace.jpg
+│   │   ├── rob-lucci.jpg
+│   │   ├── roronoa-zoro.jpg
+│   │   ├── sabo.jpg
+│   │   ├── sanji.jpg
+│   │   ├── shanks.jpg
+│   │   ├── smoker.jpg
+│   │   ├── tony-tony-chopper.jpg
+│   │   ├── trafalgar-d-water-law.jpg
+│   │   └── usopp.jpg
+│   └── vite.svg
+├── src
+│   ├── App.css
+│   ├── App.jsx
+│   ├── assets
+│   │   └── react.svg
+│   ├── index.css
+│   ├── main.jsx
+│   └── topics.json
+├── struktur.txttree
+└── vite.config.js
+
+8 directories, 106 files

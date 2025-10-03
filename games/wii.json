@@ -1,0 +1,120 @@
+{
+  "games": [
+    {
+      "name": "Wii Sports",
+      "image": "https://media.rawg.io/media/games/173/1739bdc5c33e85a0fa54b499a173690b.jpg"
+    },
+    {
+      "name": "Mario Kart Wii",
+      "image": "https://media.rawg.io/media/screenshots/68a/68a5dfb584c006bb3064b83881669aaf.jpg"
+    },
+    {
+      "name": "Wii Sports Resort",
+      "image": "https://media.rawg.io/media/screenshots/472/472c6954864d52a7681e7c8ef3d3a94b.jpg"
+    },
+    {
+      "name": "New Super Mario Bros. Wii",
+      "image": "https://media.rawg.io/media/games/19a/19a1814d28ea396b3fd46404b1638a98.jpg"
+    },
+    {
+      "name": "Wii Play",
+      "image": "https://media.rawg.io/media/screenshots/d19/d1927887af067fc1d763a99dfe653f35.jpg"
+    },
+    {
+      "name": "Wii Fit",
+      "image": "https://media.rawg.io/media/screenshots/3de/3de5cba7c06045fa9139be3a2196cadf.jpg"
+    },
+    {
+      "name": "Wii Fit Plus",
+      "image": "https://media.rawg.io/media/screenshots/99c/99c141ed52797c5dfe465c317c8d95f7.jpg"
+    },
+    {
+      "name": "Super Smash Bros. Brawl",
+      "image": "https://media.rawg.io/media/games/a00/a00c19dae42d87ca31d903d26761d335.jpg"
+    },
+    {
+      "name": "Super Mario Galaxy",
+      "image": "https://media.rawg.io/media/games/936/936f0ffac0b3c9f5c8d185f610ed2631.jpg"
+    },
+    {
+      "name": "Just Dance 3",
+      "image": "https://media.rawg.io/media/screenshots/16f/16fd9b2af90a8bcec078ec75eabcdd3b.jpg"
+    },
+    {
+      "name": "Just Dance 2",
+      "image": "https://media.rawg.io/media/screenshots/7f1/7f1697ab5c78967eab538113e5411de9.jpg"
+    },
+    {
+      "name": "The Legend of Zelda Twilight Princess",
+      "image": "https://media.rawg.io/media/games/dd1/dd167cf8753db3748a975d61cc926e54.jpg"
+    },
+    {
+      "name": "Mario Party 8",
+      "image": "https://media.rawg.io/media/screenshots/2ea/2ea21327acf29809b9864812ba3c3422.jpg"
+    },
+    {
+      "name": "Super Mario Galaxy 2",
+      "image": "https://media.rawg.io/media/games/578/578ff52303d0e2563e28a4149f1485c2.jpeg"
+    },
+    {
+      "name": "Wii Party",
+      "image": "https://media.rawg.io/media/screenshots/742/742bfb8d4fcad86fe5e53b431b637c18.jpg"
+    },
+    {
+      "name": "Link's Crossbow Training",
+      "image": "https://media.rawg.io/media/screenshots/902/9029940c36163954b9fdb7d3032c54eb.jpg"
+    },
+    {
+      "name": "Just Dance",
+      "image": "https://media.rawg.io/media/games/e4a/e4abca7866c6f9937ad5740079f02f0f.jpg"
+    },
+    {
+      "name": "Animal Crossing City Folk",
+      "image": "https://media.rawg.io/media/games/276/27688f45ec85b6847928b6e07494451e.jpg"
+    },
+    {
+      "name": "Guitar Hero III Legends of Rock",
+      "image": "https://media.rawg.io/media/games/444/444d319b3156101aeef3d1a8df219f3f.jpg"
+    },
+    {
+      "name": "Donkey Kong Country Returns",
+      "image": "https://media.rawg.io/media/games/ccd/ccd36642cee0cbb95681a6e3b7715381.jpg"
+    },
+    {
+      "name": "The Legend of Zelda Skyward Sword",
+      "image": "https://media.rawg.io/media/games/884/884d12f527a9a12b5e486ee1b79ecf7f.jpeg"
+    },
+    {
+      "name": "Mario & Sonic at the Olympic Games",
+      "image": "https://media.rawg.io/media/screenshots/3ee/3eeb1b95603db8a965f82b43cd2a6fcb.jpg"
+    },
+    {
+      "name": "Wii Music",
+      "image": "https://media.rawg.io/media/screenshots/c76/c760f9cbcabb4a715ddb2f7aeebfbb45.jpg"
+    },
+    {
+      "name": "Kirby's Epic Yarn",
+      "image": "https://media.rawg.io/media/screenshots/cbc/cbc476a2a00b82853bc30b32d46edcab.jpg"
+    },
+    {
+      "name": "Wii Sports Club",
+      "image": "https://media.rawg.io/media/screenshots/650/650b76388f99fb913be50e0e3937d524.jpg"
+    },
+    {
+      "name": "Carnival Games",
+      "image": "https://media.rawg.io/media/screenshots/4d1/4d1a00f0368fcd65a975fc0f44227989.jpg"
+    },
+    {
+      "name": "LEGO Star Wars The Complete Saga",
+      "image": "https://media.rawg.io/media/games/cf3/cf39c637f18800b6d3f65d640a8ebbaa.jpg"
+    },
+    {
+      "name": "Michael Jackson The Experience",
+      "image": "https://media.rawg.io/media/games/aec/aecc7538230b9e3c0c83c923f7f5b16c.jpg"
+    },
+    {
+      "name": "Guitar Hero World Tour",
+      "image": "https://media.rawg.io/media/games/70e/70e982c3bdb93500176d906288f0a6fb.jpg"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "games": [
+    {
+      "name": "New Super Mario Bros.",
+      "image": "https://media.rawg.io/media/screenshots/ada/ada90672691bd75745ee88cd43d49657.jpg"
+    },
+    {
+      "name": "Nintendogs",
+      "image": "https://media.rawg.io/media/games/095/095b9457db584d15e78574d8cd0e52aa.jpg"
+    },
+    {
+      "name": "Mario Kart DS",
+      "image": "https://media.rawg.io/media/screenshots/bc0/bc02ade70c7d92900b1f4950f4c845ba.jpg"
+    },
+    {
+      "name": "Brain Age Train Your Brain",
+      "image": "https://media.rawg.io/media/screenshots/fe1/fe133776416004400bbcc5b09e6e7c34.jpg"
+    },
+    {
+      "name": "Pokemon Diamond Pearl",
+      "image": "https://media.rawg.io/media/screenshots/47b/47b915b28e72ead7a1775f057af421f6.jpeg"
+    },
+    {
+      "name": "Pokemon Black White",
+      "image": "https://media.rawg.io/media/games/3dd/3ddf27683a9aecf1cf39605100651a99.jpg"
+    },
+    {
+      "name": "Brain Age 2 More Training",
+      "image": "https://media.rawg.io/media/screenshots/fd4/fd4441648c321652a80e61ae0595d4d1.jpg"
+    },
+    {
+      "name": "Super Mario 64 DS",
+      "image": "https://media.rawg.io/media/games/da4/da4ade8921158396e2f3513069ad714d.jpg"
+    },
+    {
+      "name": "Pokemon HeartGold SoulSilver",
+      "image": "https://media.rawg.io/media/games/a9b/a9b87910722fd2ce7d14d8f9a7fa4d5a.jpg"
+    },
+    {
+      "name": "Pokemon Platinum",
+      "image": "https://media.rawg.io/media/screenshots/f2b/f2bd54a7aa57b901b7ad5291e738753f.jpg"
+    },
+    {
+      "name": "Mario Party DS",
+      "image": "https://media.rawg.io/media/screenshots/ebe/ebe9b9453e80a28893c28a7ad7c7f0d0.jpg"
+    },
+    {
+      "name": "The Legend of Zelda Phantom Hourglass",
+      "image": "https://media.rawg.io/media/screenshots/b23/b23b3b0f25b10123c0338cf9f5c8bc12.jpg"
+    },
+    {
+      "name": "Animal Crossing Wild World",
+      "image": "https://media.rawg.io/media/games/9e5/9e5090bc33c972d0da0d14afff882ae5.jpg"
+    },
+    {
+      "name": "Mario & Luigi Bowser's Inside Story",
+      "image": "https://media.rawg.io/media/screenshots/57a/57a1551d54b04f08962a11c5a8f9083d.jpg"
+    },
+    {
+      "name": "The Legend of Zelda Spirit Tracks",
+      "image": "https://media.rawg.io/media/games/4a1/4a1ed758c53873d6442562f0c772b640.jpeg"
+    },
+    {
+      "name": "Pokemon Black 2 White 2",
+      "image": "https://media.rawg.io/media/games/abf/abf12c25d84b8853f219854ef6a2a1b2.jpg"
+    },
+    {
+      "name": "Cooking Mama",
+      "image": "https://media.rawg.io/media/screenshots/bdd/bddc2b764f5d6cdc2c7fb4c506dab824.jpg"
+    },
+    {
+      "name": "Kirby Super Star Ultra",
+      "image": "https://media.rawg.io/media/screenshots/f19/f19840339a403fd40d43a633f4e96428.jpg"
+    },
+    {
+      "name": "LEGO Star Wars The Complete Saga",
+      "image": "https://media.rawg.io/media/games/cf3/cf39c637f18800b6d3f65d640a8ebbaa.jpg"
+    },
+    {
+      "name": "Mario & Luigi Partners in Time",
+      "image": "https://media.rawg.io/media/screenshots/572/572483eed674fcda46e3d0cb2fe07719.jpg"
+    },
+    {
+      "name": "Scribblenauts",
+      "image": "https://media.rawg.io/media/screenshots/7fb/7fb00c9bfb948d52086ccb333710fb41.jpg"
+    },
+    {
+      "name": "Yoshi's Island DS",
+      "image": "https://media.rawg.io/media/screenshots/d29/d29e8d62f078fc7617cc13bb661dd778.jpg"
+    },
+    {
+      "name": "Donkey Kong Jungle Climber",
+      "image": "https://via.placeholder.com/264x352?text=No+Image"
+    },
+    {
+      "name": "Big Brain Academy",
+      "image": "https://media.rawg.io/media/screenshots/da2/da20dc9a440a6ed63173df1db140ec9d.jpg"
+    },
+    {
+      "name": "Star Fox Command",
+      "image": "https://media.rawg.io/media/screenshots/9e1/9e1e61b119d9206a16f315d65321f9ec.jpg"
+    },
+    {
+      "name": "Sonic Rush",
+      "image": "https://media.rawg.io/media/screenshots/2d8/2d802c45a63bc6ba95a2259146e9fc24.jpg"
+    },
+    {
+      "name": "Professor Layton and the Curious Village",
+      "image": "https://media.rawg.io/media/screenshots/6fc/6fc5f9e00777bdc6bc6e1786f2cd65d6.jpg"
+    },
+    {
+      "name": "Kirby Canvas Curse",
+      "image": "https://media.rawg.io/media/screenshots/0fa/0fa4d2259a8e658dff0ebb4ab4ab8fc5.jpg"
+    },
+    {
+      "name": "Advance Wars Dual Strike",
+      "image": "https://media.rawg.io/media/screenshots/ab0/ab0518767d173d361df43f10b453564e.jpg"
+    },
+    {
+      "name": "Wario Master of Disguise",
+      "image": "https://media.rawg.io/media/screenshots/31e/31ec79053bc8c4fd8340f0d259c97cde.jpg"
+    }
+  ]
+}

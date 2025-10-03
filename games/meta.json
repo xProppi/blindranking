@@ -1,0 +1,124 @@
+{
+  "games": [
+    {
+      "name": "The Legend of Zelda Breath of the Wild",
+      "image": "https://media.rawg.io/media/games/cc1/cc196a5ad763955d6532cdba236f730c.jpg"
+    },
+    {
+      "name": "Grand Theft Auto V",
+      "image": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg"
+    },
+    {
+      "name": "The Last of Us",
+      "image": "https://media.rawg.io/media/games/a5a/a5a7fb8d9cb8063a8b42ee002b410db6.jpg"
+    },
+    {
+      "name": "Red Dead Redemption 2",
+      "image": "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg"
+    },
+    {
+      "name": "Mass Effect 2",
+      "image": "https://media.rawg.io/media/games/3cf/3cff89996570cf29a10eb9cd967dcf73.jpg"
+    },
+    {
+      "name": "The Elder Scrolls V Skyrim",
+      "image": "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg"
+    },
+    {
+      "name": "Super Mario Galaxy",
+      "image": "https://media.rawg.io/media/games/936/936f0ffac0b3c9f5c8d185f610ed2631.jpg"
+    },
+    {
+      "name": "Super Mario Galaxy 2",
+      "image": "https://media.rawg.io/media/games/578/578ff52303d0e2563e28a4149f1485c2.jpeg"
+    },
+    {
+      "name": "BioShock",
+      "image": "https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg"
+    },
+    {
+      "name": "Portal 2",
+      "image": "https://media.rawg.io/media/games/2ba/2bac0e87cf45e5b508f227d281c9252a.jpg"
+    },
+    {
+      "name": "Uncharted 2 Among Thieves",
+      "image": "https://media.rawg.io/media/games/74b/74b239f6ef0216a2f66e652d54abb2e6.jpg"
+    },
+    {
+      "name": "The Witcher 3 Wild Hunt",
+      "image": "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg"
+    },
+    {
+      "name": "God of War",
+      "image": "https://media.rawg.io/media/games/1aa/1aa4ca34a8a6bb57a2e065c8332dc230.jpg"
+    },
+    {
+      "name": "The Last of Us Part II",
+      "image": "https://media.rawg.io/media/games/909/909974d1c7863c2027241e265fe7011f.jpg"
+    },
+    {
+      "name": "Batman Arkham City",
+      "image": "https://media.rawg.io/media/games/b5a/b5a1226bfd971284a735a4a0969086b3.jpg"
+    },
+    {
+      "name": "Half-Life 2 Episode Two",
+      "image": "https://media.rawg.io/media/games/198/1988a337305e008b41d7f536ce9b73f6.jpg"
+    },
+    {
+      "name": "Red Dead Redemption",
+      "image": "https://media.rawg.io/media/games/686/686909717c3aa01518bc42ae2bf4259e.jpg"
+    },
+    {
+      "name": "Elden Ring",
+      "image": "https://media.rawg.io/media/games/b29/b294fdd866dcdb643e7bab370a552855.jpg"
+    },
+    {
+      "name": "Baldur's Gate 3",
+      "image": "https://media.rawg.io/media/games/699/69907ecf13f172e9e144069769c3be73.jpg"
+    },
+    {
+      "name": "Halo 3",
+      "image": "https://media.rawg.io/media/games/982/982ff61d574fed5e416cb1867b40d9b0.jpg"
+    },
+    {
+      "name": "Dark Souls",
+      "image": "https://media.rawg.io/media/games/582/582b5518a52f5086d15dde128264b94d.jpg"
+    },
+    {
+      "name": "Metal Gear Solid V The Phantom Pain",
+      "image": "https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg"
+    },
+    {
+      "name": "Persona 5 Royal",
+      "image": "https://media.rawg.io/media/games/a9c/a9c789951de65da545d51f664b4f2ce0.jpg"
+    },
+    {
+      "name": "The Legend of Zelda Tears of the Kingdom",
+      "image": "https://media.rawg.io/media/games/556/55684bfd048706f4266d331d70050b37.jpg"
+    },
+    {
+      "name": "Bloodborne",
+      "image": "https://media.rawg.io/media/games/214/214b29aeff13a0ae6a70fc4426e85991.jpg"
+    },
+    {
+      "name": "Metroid Prime",
+      "image": "https://media.rawg.io/media/games/c86/c86bc047ba949959a90fe24209d59439.jpg"
+    },
+    {
+      "name": "Super Smash Bros. Ultimate",
+      "image": "https://media.rawg.io/media/games/9f3/9f3c513b301d8d7250a64dd7e73c62df.jpg"
+    },
+    {
+      "name": "Disco Elysium",
+      "image": "https://media.rawg.io/media/games/840/8408ad3811289a6a5830cae60fb0b62a.jpg"
+    },
+    {
+      "name": "Dark Souls III",
+      "image": "https://media.rawg.io/media/games/da1/da1b267764d77221f07a4386b6548e5a.jpg"
+    },
+    {
+      "name": "Resident Evil 4 2023",
+      "image": "https://media.rawg.io/media/games/51a/51a404b9918a0b19fc704a3ca248c69f.jpg"
+    }
+  ]
+}
