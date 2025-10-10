@@ -1,0 +1,1 @@
+export const RANKING_SIZE = 10;

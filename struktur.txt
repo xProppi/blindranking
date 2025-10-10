@@ -3,9 +3,12 @@
 ├── anime
 │   ├── anime-data.json
 │   ├── download-anime-images.js
+│   ├── fruits.json
 │   ├── naruto-characters.json
 │   ├── one-piece-characters.json
-│   └── package.json
+│   ├── package.json
+│   └── serie.json
+├── donwload.jsx
 ├── eslint.config.js
 ├── games
 │   ├── ds.json
@@ -114,11 +117,22 @@
 │   ├── App.jsx
 │   ├── assets
 │   │   └── react.svg
+│   ├── components
+│   │   ├── GamePhase.jsx
+│   │   ├── ResultPhase.jsx
+│   │   └── SetupPhase.jsx
+│   ├── constans
+│   │   └── config.js
 │   ├── index.css
 │   ├── main.jsx
-│   └── topics.json
+│   ├── topics.json
+│   └── utils
+│       ├── Helper.js
+│       └── topicsLoader.js
 ├── struktur.txt
 ├── struktur.txttree
-└── vite.config.js
+├── vite.config.js
+├── x.html
+└── y.html
 
-9 directories, 113 files
+12 directories, 124 files
