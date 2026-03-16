@@ -1,11 +1,20 @@
 export const getPlayerColor = (index) => {
-  return `hsl(${index * 60}, 70%, 50%)`;
+  const colors = ['#ff00aa', '#ff8800', '#00cc66', '#3388ff', '#aa00ff', '#00cccc'];
+  return colors[index % colors.length];
 };
 
 export const getRankColor = (index) => {
-  if (index === 0) return 'linear-gradient(135deg, #fbbf24, #f59e0b)';
-  if (index === 1) return 'linear-gradient(135deg, #6b7280, #4b5563)';
-  if (index === 2) return 'linear-gradient(135deg, #ea580c, #dc2626)';
-  const hue = 240 - index * 20;
-  return `linear-gradient(135deg, hsl(${hue}, 70%, 50%), hsl(${hue - 20}, 70%, 40%))`;
+  const colors = [
+    '#ff00ff', // 1 - magenta/pink
+    '#ff8800', // 2 - orange
+    '#ff0000', // 3 - rot
+    '#22cc22', // 4 - gruen
+    '#0066ff', // 5 - blau
+    '#0000cc', // 6 - dunkelblau
+    '#cc00ff', // 7 - lila
+    '#00cccc', // 8 - cyan
+    '#ff0044', // 9 - rot/pink
+    '#ffff00', // 10 - gelb
+  ];
+  return colors[index % colors.length];
 };

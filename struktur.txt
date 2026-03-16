@@ -1,4 +1,7 @@
 .
+├── .claude
+│   └── settings.local.json
+├── .gitignore
 ├── README.md
 ├── anime
 │   ├── anime-data.json
@@ -8,6 +11,7 @@
 │   ├── one-piece-characters.json
 │   ├── package.json
 │   └── serie.json
+├── database.rules.json
 ├── donwload.jsx
 ├── eslint.config.js
 ├── games
@@ -119,20 +123,22 @@
 │   │   └── react.svg
 │   ├── components
 │   │   ├── GamePhase.jsx
-│   │   ├── ResultPhase.jsx
-│   │   └── SetupPhase.jsx
-│   ├── constans
+│   │   ├── LandingPhase.jsx
+│   │   ├── LobbyPhase.jsx
+│   │   └── ResultsPhase.jsx
+│   ├── constants
 │   │   └── config.js
+│   ├── firebase.js
 │   ├── index.css
 │   ├── main.jsx
+│   ├── sessionService.js
 │   ├── topics.json
 │   └── utils
-│       ├── Helper.js
+│       ├── helpers.js
 │       └── topicsLoader.js
 ├── struktur.txt
-├── struktur.txttree
 ├── vite.config.js
 ├── x.html
 └── y.html
 
-12 directories, 124 files
+13 directories, 129 files

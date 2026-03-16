@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//mnt/wsl/Ubuntu/home/user/blindranking/**)",
+      "Read(///wsl.localhost/Ubuntu//**)",
+      "Read(//home/user/blindranking/**)",
+      "Bash(ls /home/user/blindranking/blindranking-app/*.json)"
+    ]
+  }
+}

@@ -1,114 +1,222 @@
+import { useState } from "react";
 import { RANKING_SIZE } from "../constants/config";
 import { getRankColor, getPlayerColor } from "../utils/helpers";
+import useIsMobile from "../hooks/useIsMobile";
 
-export default function GamePhase({ 
-  players, 
-  rankings, 
-  picks, 
-  currentItem, 
-  onPickSlot, 
-  onLockIn, 
-  onSkip 
+function hasPicked(pickValue) {
+  return typeof pickValue === 'number' && pickValue >= 0;
+}
+
+export default function GamePhase({
+  playersList, rankings, picks, currentItem, playerId,
+  isAdmin, isLocking, onPickSlot, onLockIn, onSkip, onEndSession
 }) {
-  const allPlayersPicked = players.every(p => picks[p] !== null);
+  const isMobile = useIsMobile();
+  const [showAllPlayers, setShowAllPlayers] = useState(false);
+  const [confirmEnd, setConfirmEnd] = useState(false);
+
+  if (!currentItem) {
+    return (
+      <div style={{
+        minHeight: '100vh', background: '#111',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        color: '#fff', fontSize: '1.2rem', fontWeight: '800'
+      }}>
+        Loading next item...
+      </div>
+    );
+  }
+
+  const allPlayersPicked = playersList.every(p => hasPicked(picks[p.id]));
+  const visiblePlayers = (isMobile && !showAllPlayers)
+    ? playersList.filter(p => p.id === playerId)
+    : playersList;
 
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%)',
-      padding: '20px',
-      fontFamily: 'system-ui, sans-serif'
+      background: '#111',
+      padding: isMobile ? '12px' : '20px',
+      fontFamily: "'Arial Black', Impact, system-ui, sans-serif"
     }}>
       {/* Current Item Display */}
       <div style={{
         position: 'fixed',
-        top: '20px',
+        top: isMobile ? '8px' : '16px',
         left: '50%',
         transform: 'translateX(-50%)',
-        background: 'rgba(255, 255, 255, 0.98)',
-        borderRadius: '16px',
-        padding: '20px 30px',
-        boxShadow: '0 10px 40px rgba(0, 0, 0, 0.4)',
+        background: '#1a1a1a',
+        borderRadius: '0',
+        padding: isMobile ? '10px 14px' : '16px 24px',
+        border: '3px solid #22cc22',
         zIndex: 1000,
-        border: '3px solid #10b981',
         display: 'flex',
         alignItems: 'center',
-        gap: '20px'
+        gap: isMobile ? '10px' : '20px',
+        maxWidth: isMobile ? 'calc(100% - 24px)' : 'auto'
       }}>
-        <span style={{ fontSize: '16px', fontWeight: '700', color: '#374151' }}>
-          Now placing:
-        </span>
+        {!isMobile && (
+          <span style={{ fontSize: '14px', fontWeight: '900', color: '#888', textTransform: 'uppercase' }}>
+            Now placing:
+          </span>
+        )}
         <img
-          src={currentItem?.image}
-          alt={currentItem?.name}
+          src={currentItem.image}
+          alt={currentItem.name}
           style={{
-            width: '60px',
-            height: '60px',
+            width: isMobile ? '44px' : '56px',
+            height: isMobile ? '44px' : '56px',
             objectFit: 'cover',
-            borderRadius: '12px',
-            background: '#f3f4f6',
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)'
+            borderRadius: '0',
+            background: '#333',
+            flexShrink: 0
           }}
         />
-        <span style={{ fontSize: '20px', fontWeight: '800', color: '#10b981' }}>
-          {currentItem?.name}
+        <span style={{
+          fontSize: isMobile ? '15px' : '20px',
+          fontWeight: '900',
+          color: '#22cc22',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+          textTransform: 'uppercase'
+        }}>
+          {currentItem.name}
         </span>
-        <button
-          style={{
-            padding: '10px 20px',
-            background: 'linear-gradient(135deg, #ef4444, #dc2626)',
-            color: 'white',
-            border: 'none',
-            borderRadius: '10px',
-            fontSize: '14px',
-            fontWeight: '700',
-            cursor: 'pointer'
-          }}
-          onClick={onSkip}
-        >
-          Skip
-        </button>
+        {isAdmin && (
+          <button
+            style={{
+              padding: isMobile ? '8px 14px' : '10px 20px',
+              background: '#ff0044',
+              color: 'white',
+              border: 'none',
+              borderRadius: '0',
+              fontSize: isMobile ? '12px' : '14px',
+              fontWeight: '900',
+              cursor: 'pointer',
+              flexShrink: 0,
+              textTransform: 'uppercase'
+            }}
+            onClick={onSkip}
+          >
+            Skip
+          </button>
+        )}
       </div>
 
+      {/* Mobile Toggle */}
+      {isMobile && playersList.length > 1 && (
+        <div style={{
+          position: 'fixed',
+          top: isMobile ? '76px' : '100px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 999,
+          display: 'flex',
+          gap: '4px'
+        }}>
+          <button
+            style={{
+              padding: '8px 16px',
+              background: !showAllPlayers ? '#fff' : '#333',
+              color: !showAllPlayers ? '#111' : '#888',
+              border: 'none',
+              borderRadius: '0',
+              fontSize: '12px',
+              fontWeight: '900',
+              cursor: 'pointer',
+              textTransform: 'uppercase'
+            }}
+            onClick={() => setShowAllPlayers(false)}
+          >
+            My Ranking
+          </button>
+          <button
+            style={{
+              padding: '8px 16px',
+              background: showAllPlayers ? '#fff' : '#333',
+              color: showAllPlayers ? '#111' : '#888',
+              border: 'none',
+              borderRadius: '0',
+              fontSize: '12px',
+              fontWeight: '900',
+              cursor: 'pointer',
+              textTransform: 'uppercase'
+            }}
+            onClick={() => setShowAllPlayers(true)}
+          >
+            All Players
+          </button>
+
+          {!showAllPlayers && playersList.length > 1 && (
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: '6px',
+              background: '#222', borderRadius: '0', padding: '6px 12px',
+              fontSize: '11px', fontWeight: '800', color: '#888'
+            }}>
+              {playersList.filter(p => p.id !== playerId).map((p) => (
+                <span key={p.id} style={{
+                  display: 'inline-block', width: '10px', height: '10px',
+                  borderRadius: '0',
+                  background: hasPicked(picks[p.id]) ? '#22cc22' : '#444'
+                }} />
+              ))}
+              <span style={{ marginLeft: '4px' }}>
+                {playersList.filter(p => p.id !== playerId && hasPicked(picks[p.id])).length}
+                /{playersList.length - 1} ready
+              </span>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Main Game Grid */}
-      <div style={{
-        maxWidth: '100%',
-        margin: '120px auto 0',
-        background: 'rgba(255, 255, 255, 0.98)',
-        borderRadius: '20px',
-        padding: '30px',
-        boxShadow: '0 15px 50px rgba(0, 0, 0, 0.4)'
-      }}>
+      <div
+        className="scroll-container"
+        style={{
+          maxWidth: '100%',
+          margin: isMobile
+            ? (playersList.length > 1 ? '120px auto 0' : '90px auto 0')
+            : '100px auto 0',
+          background: '#1a1a1a',
+          borderRadius: '0',
+          padding: isMobile ? '12px' : '24px',
+          border: '2px solid #333',
+          overflowX: (isMobile && showAllPlayers) ? 'auto' : 'visible',
+          paddingBottom: isAdmin ? (isMobile ? '80px' : '24px') : (isMobile ? '12px' : '24px')
+        }}
+      >
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '90px 1fr',
-          gap: '20px',
-          alignItems: 'start'
+          gridTemplateColumns: isMobile ? '50px 1fr' : '70px 1fr',
+          gap: '3px',
+          alignItems: 'start',
+          minWidth: (isMobile && showAllPlayers) ? `${70 + playersList.length * 110}px` : 'auto'
         }}>
           {/* Rank Labels */}
           <div style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '8px',
-            paddingTop: '60px'
+            gap: '3px',
+            paddingTop: isMobile ? '46px' : '56px'
           }}>
             {Array.from({ length: RANKING_SIZE }).map((_, i) => (
               <div
                 key={i}
                 style={{
-                  height: '100px',
+                  height: isMobile ? '70px' : '90px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: 'white',
-                  fontWeight: '800',
-                  fontSize: '16px',
-                  borderRadius: '12px',
+                  fontWeight: '900',
+                  fontSize: isMobile ? '18px' : '22px',
+                  borderRadius: '0',
                   background: getRankColor(i),
-                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)'
+                  textShadow: '2px 2px 0 rgba(0,0,0,0.5)'
                 }}
               >
-                #{i + 1}
+                {i + 1}
               </div>
             ))}
           </div>
@@ -118,88 +226,108 @@ export default function GamePhase({
             {/* Player Headers */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: `repeat(${players.length}, 1fr)`,
-              gap: '12px',
-              marginBottom: '12px'
+              gridTemplateColumns: `repeat(${visiblePlayers.length}, 1fr)`,
+              gap: '3px',
+              marginBottom: '3px'
             }}>
-              {players.map((player, i) => (
-                <div
-                  key={player}
-                  style={{
-                    background: getPlayerColor(i),
-                    color: 'white',
-                    fontWeight: '700',
-                    fontSize: '17px',
-                    padding: '16px',
-                    textAlign: 'center',
-                    borderRadius: '12px',
-                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
-                  }}
-                >
-                  {player}
-                </div>
-              ))}
+              {visiblePlayers.map((player) => {
+                const origIndex = playersList.findIndex(p => p.id === player.id);
+                const isMe = player.id === playerId;
+                const playerHasPicked = hasPicked(picks[player.id]);
+
+                return (
+                  <div
+                    key={player.id}
+                    style={{
+                      background: getPlayerColor(origIndex),
+                      color: 'white',
+                      fontWeight: '900',
+                      fontSize: isMobile ? '14px' : '17px',
+                      padding: isMobile ? '10px 6px' : '14px',
+                      textAlign: 'center',
+                      borderRadius: '0',
+                      position: 'relative',
+                      textTransform: 'uppercase'
+                    }}
+                  >
+                    {player.name}
+                    {isMe && (
+                      <span style={{ display: 'block', fontSize: '10px', opacity: 0.7, marginTop: '2px', fontWeight: '700' }}>
+                        (you)
+                      </span>
+                    )}
+                    {!isMe && (
+                      <span style={{
+                        position: 'absolute', top: '4px', right: '6px',
+                        width: '10px', height: '10px', borderRadius: '0',
+                        background: playerHasPicked ? '#22cc22' : 'rgba(255,255,255,0.2)',
+                        border: '1px solid rgba(255,255,255,0.4)'
+                      }} />
+                    )}
+                  </div>
+                );
+              })}
             </div>
 
-            {/* Ranking Grid */}
+            {/* Ranking Slots */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: `repeat(${players.length}, 1fr)`,
-              gap: '12px'
+              gridTemplateColumns: `repeat(${visiblePlayers.length}, 1fr)`,
+              gap: '3px'
             }}>
-              {Array.from({ length: RANKING_SIZE * players.length }).map((_, index) => {
-                const rankIndex = Math.floor(index / players.length);
-                const playerIndex = index % players.length;
-                const player = players[playerIndex];
-                const isSelected = picks[player] === rankIndex;
-                const isFilled = rankings[player][rankIndex] !== null;
+              {Array.from({ length: RANKING_SIZE * visiblePlayers.length }).map((_, index) => {
+                const rankIndex = Math.floor(index / visiblePlayers.length);
+                const visPlayerIndex = index % visiblePlayers.length;
+                const player = visiblePlayers[visPlayerIndex];
+                const isMyColumn = player.id === playerId;
+                const isSelected = isMyColumn && picks[player.id] === rankIndex;
+                const slotItem = rankings[player.id]?.[rankIndex];
+                const isFilled = slotItem != null;
 
                 return (
                   <button
-                    key={`${player}-${rankIndex}`}
+                    key={`${player.id}-${rankIndex}`}
                     style={{
                       width: '100%',
-                      height: '100px',
-                      borderRadius: '12px',
-                      border: isFilled
-                        ? '2px solid #e5e7eb'
-                        : isSelected
-                          ? '3px solid #fbbf24'
-                          : '2px solid #bfdbfe',
-                      cursor: isFilled ? 'not-allowed' : 'pointer',
+                      height: isMobile ? '70px' : '90px',
+                      borderRadius: '0',
+                      border: isSelected ? '3px solid #ffff00' : '1px solid #333',
+                      cursor: (isFilled || !isMyColumn) ? 'not-allowed' : 'pointer',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: '13px',
-                      fontWeight: '600',
+                      fontSize: isMobile ? '11px' : '13px',
+                      fontWeight: '800',
                       background: isFilled
-                        ? '#f9fafb'
+                        ? '#2a2a2a'
                         : isSelected
-                          ? 'linear-gradient(135deg, #fbbf24, #f59e0b)'
-                          : 'linear-gradient(135deg, #dbeafe, #bfdbfe)',
-                      color: isFilled ? '#6b7280' : isSelected ? '#92400e' : '#1d4ed8',
-                      boxShadow: isSelected
-                        ? '0 8px 20px rgba(251, 191, 36, 0.4)'
-                        : '0 2px 8px rgba(0, 0, 0, 0.1)'
+                          ? '#ffff00'
+                          : isMyColumn
+                            ? '#2a2a2a'
+                            : '#222',
+                      color: isSelected ? '#111' : isFilled ? '#888' : isMyColumn ? '#666' : '#444',
+                      opacity: (!isFilled && !isMyColumn) ? 0.5 : 1,
+                      padding: 0,
+                      textTransform: 'uppercase'
                     }}
-                    onClick={() => onPickSlot(player, rankIndex)}
-                    disabled={isFilled}
+                    onClick={() => isMyColumn && !isFilled && onPickSlot(player.id, rankIndex)}
+                    disabled={isFilled || !isMyColumn}
                   >
                     {isFilled ? (
                       <img
-                        src={rankings[player][rankIndex].image}
-                        alt={rankings[player][rankIndex].name}
+                        src={slotItem.image}
+                        alt={slotItem.name}
                         style={{
-                          width: '80px',
-                          height: '80px',
+                          width: isMobile ? '52px' : '70px',
+                          height: isMobile ? '52px' : '70px',
                           objectFit: 'cover',
-                          borderRadius: '8px'
+                          borderRadius: '0'
                         }}
                       />
                     ) : isSelected ? (
-                      <span style={{ fontWeight: '800' }}>SELECTED</span>
+                      <span style={{ fontWeight: '900' }}>SELECTED</span>
                     ) : (
-                      <span>Click to place</span>
+                      <span>{isMyColumn ? 'TAP' : '...'}</span>
                     )}
                   </button>
                 );
@@ -210,29 +338,109 @@ export default function GamePhase({
       </div>
 
       {/* Lock Button */}
-      <button
-        style={{
+      {isAdmin && (
+        <button
+          style={{
+            position: 'fixed',
+            bottom: isMobile ? '16px' : '30px',
+            right: isMobile ? '16px' : '30px',
+            padding: isMobile ? '14px 24px' : '20px 35px',
+            background: (allPlayersPicked && !isLocking) ? '#22cc22' : '#333',
+            color: 'white',
+            border: 'none',
+            borderRadius: '0',
+            fontSize: isMobile ? '15px' : '17px',
+            fontWeight: '900',
+            zIndex: 1000,
+            cursor: (allPlayersPicked && !isLocking) ? 'pointer' : 'not-allowed',
+            textTransform: 'uppercase'
+          }}
+          onClick={onLockIn}
+          disabled={!allPlayersPicked || isLocking}
+        >
+          {isLocking ? "Locking..." : allPlayersPicked ? "Lock In" : "Waiting..."}
+        </button>
+      )}
+
+      {/* End Session Button */}
+      {isAdmin && (
+        <div style={{
           position: 'fixed',
-          bottom: '30px',
-          right: '30px',
-          padding: '20px 35px',
-          background: allPlayersPicked
-            ? 'linear-gradient(135deg, #10b981, #059669)'
-            : '#9ca3af',
-          color: 'white',
-          border: 'none',
-          borderRadius: '14px',
-          fontSize: '17px',
-          fontWeight: '800',
-          zIndex: 1000,
-          cursor: allPlayersPicked ? 'pointer' : 'not-allowed',
-          boxShadow: allPlayersPicked ? '0 10px 30px rgba(16, 185, 129, 0.5)' : 'none'
-        }}
-        onClick={onLockIn}
-        disabled={!allPlayersPicked}
-      >
-        {allPlayersPicked ? "Lock In" : "Waiting..."}
-      </button>
+          bottom: isMobile ? '16px' : '30px',
+          left: isMobile ? '16px' : '30px',
+          zIndex: 1000
+        }}>
+          {!confirmEnd ? (
+            <button
+              style={{
+                padding: isMobile ? '10px 16px' : '14px 24px',
+                background: '#ff0044',
+                color: 'white',
+                border: 'none',
+                borderRadius: '0',
+                fontSize: isMobile ? '12px' : '14px',
+                fontWeight: '900',
+                cursor: 'pointer',
+                textTransform: 'uppercase'
+              }}
+              onClick={() => setConfirmEnd(true)}
+            >
+              End Session
+            </button>
+          ) : (
+            <div style={{
+              display: 'flex',
+              gap: '4px',
+              background: '#1a1a1a',
+              border: '2px solid #ff0044',
+              padding: '10px'
+            }}>
+              <span style={{
+                color: '#ff0044',
+                fontWeight: '900',
+                fontSize: isMobile ? '11px' : '13px',
+                alignSelf: 'center',
+                marginRight: '6px',
+                textTransform: 'uppercase'
+              }}>
+                Sure?
+              </span>
+              <button
+                style={{
+                  padding: '8px 16px',
+                  background: '#ff0044',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '0',
+                  fontSize: isMobile ? '12px' : '13px',
+                  fontWeight: '900',
+                  cursor: 'pointer',
+                  textTransform: 'uppercase'
+                }}
+                onClick={onEndSession}
+              >
+                Yes
+              </button>
+              <button
+                style={{
+                  padding: '8px 16px',
+                  background: '#333',
+                  color: '#888',
+                  border: 'none',
+                  borderRadius: '0',
+                  fontSize: isMobile ? '12px' : '13px',
+                  fontWeight: '900',
+                  cursor: 'pointer',
+                  textTransform: 'uppercase'
+                }}
+                onClick={() => setConfirmEnd(false)}
+              >
+                No
+              </button>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

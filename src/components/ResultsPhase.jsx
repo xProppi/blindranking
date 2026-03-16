@@ -1,187 +1,187 @@
 import { useState } from "react";
+import { getRankColor } from "../utils/helpers";
+import useIsMobile from "../hooks/useIsMobile";
 
-export default function ResultsPhase({ players, rankings, selectedTopic, onReset, rankingSize }) {
-  const getRankEmoji = (index) => {
-    const emojis = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-    return emojis[index] || '10';
-  };
+export default function ResultsPhase({ playersList, rankings, selectedTopic, onReset, rankingSize, playerId }) {
+  const isMobile = useIsMobile();
+  const [showAllPlayers, setShowAllPlayers] = useState(!isMobile);
 
-  const getRankColor = (index) => {
-    if (index === 0) return 'linear-gradient(135deg, #fbbf24, #f59e0b)';
-    if (index === 1) return 'linear-gradient(135deg, #6b7280, #4b5563)';
-    if (index === 2) return 'linear-gradient(135deg, #ea580c, #dc2626)';
-    const hue = 240 - index * 20;
-    return `linear-gradient(135deg, hsl(${hue}, 70%, 50%), hsl(${hue - 20}, 70%, 40%))`;
-  };
+  const visiblePlayers = (isMobile && !showAllPlayers)
+    ? playersList.filter(p => p.id === playerId)
+    : playersList;
 
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, #059669 0%, #10b981 100%)',
-      padding: '40px 20px',
-      fontFamily: 'system-ui, sans-serif'
+      background: '#111',
+      padding: isMobile ? '20px 12px' : '40px 20px',
+      fontFamily: "'Arial Black', Impact, system-ui, sans-serif"
     }}>
       {/* Title */}
       <div style={{
         maxWidth: '100%',
-        margin: '0 auto 40px',
+        margin: '0 auto 20px',
         textAlign: 'center',
-        background: 'rgba(255, 255, 255, 0.98)',
-        borderRadius: '20px',
-        padding: '40px',
-        boxShadow: '0 15px 50px rgba(0, 0, 0, 0.25)'
+        background: '#1a1a1a',
+        borderRadius: '0',
+        padding: isMobile ? '24px 16px' : '40px',
+        border: '2px solid #333'
       }}>
         <h1 style={{
-          fontSize: '3.5rem',
-          fontWeight: '800',
-          background: 'linear-gradient(135deg, #059669, #10b981)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          marginBottom: '10px'
+          fontSize: isMobile ? '2rem' : '3.5rem',
+          fontWeight: '900',
+          color: '#22cc22',
+          marginBottom: '10px',
+          textTransform: 'uppercase'
         }}>
           Final Rankings
         </h1>
-        <p style={{ fontSize: '1.3rem', color: '#6b7280', fontWeight: '600' }}>
-          Results for {selectedTopic}
+        <p style={{ fontSize: isMobile ? '1rem' : '1.3rem', color: '#888', fontWeight: '700' }}>
+          Results for <span style={{ color: '#ff00ff' }}>{selectedTopic}</span>
         </p>
       </div>
 
+      {/* Mobile Toggle */}
+      {isMobile && playersList.length > 1 && (
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '4px', marginBottom: '12px' }}>
+          <button
+            style={{
+              padding: '10px 18px',
+              background: !showAllPlayers ? '#fff' : '#333',
+              color: !showAllPlayers ? '#111' : '#888',
+              border: 'none', borderRadius: '0',
+              fontSize: '13px', fontWeight: '900', cursor: 'pointer', textTransform: 'uppercase'
+            }}
+            onClick={() => setShowAllPlayers(false)}
+          >
+            My Ranking
+          </button>
+          <button
+            style={{
+              padding: '10px 18px',
+              background: showAllPlayers ? '#fff' : '#333',
+              color: showAllPlayers ? '#111' : '#888',
+              border: 'none', borderRadius: '0',
+              fontSize: '13px', fontWeight: '900', cursor: 'pointer', textTransform: 'uppercase'
+            }}
+            onClick={() => setShowAllPlayers(true)}
+          >
+            All Players
+          </button>
+        </div>
+      )}
+
       {/* Results Grid */}
-      <div style={{
-        maxWidth: '100%',
-        margin: '0 auto 40px',
-        background: 'rgba(255, 255, 255, 0.98)',
-        borderRadius: '20px',
-        padding: '40px',
-        boxShadow: '0 15px 50px rgba(0, 0, 0, 0.25)'
-      }}>
+      <div
+        className="scroll-container"
+        style={{
+          maxWidth: '100%',
+          margin: '0 auto 20px',
+          background: '#1a1a1a',
+          borderRadius: '0',
+          padding: isMobile ? '12px' : '30px',
+          border: '2px solid #333',
+          overflowX: (isMobile && showAllPlayers) ? 'auto' : 'visible'
+        }}
+      >
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '100px 1fr',
-          gap: '25px',
-          alignItems: 'start'
+          gridTemplateColumns: isMobile ? '50px 1fr' : '70px 1fr',
+          gap: '3px',
+          alignItems: 'start',
+          minWidth: (isMobile && showAllPlayers) ? `${70 + playersList.length * 120}px` : 'auto'
         }}>
           {/* Rank Labels */}
           <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '12px',
-            paddingTop: '70px'
+            display: 'flex', flexDirection: 'column', gap: '3px',
+            paddingTop: isMobile ? '46px' : '56px'
           }}>
             {Array.from({ length: rankingSize }).map((_, i) => (
-              <div
-                key={i}
-                style={{
-                  height: '140px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'white',
-                  fontWeight: '800',
-                  fontSize: '18px',
-                  borderRadius: '14px',
-                  background: getRankColor(i),
-                  boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25)',
-                  border: i < 3 ? '3px solid rgba(255, 255, 255, 0.3)' : 'none'
-                }}
-              >
-                #{getRankEmoji(i)}
+              <div key={i} style={{
+                height: isMobile ? '90px' : '120px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: 'white', fontWeight: '900',
+                fontSize: isMobile ? '18px' : '22px',
+                borderRadius: '0',
+                background: getRankColor(i),
+                textShadow: '2px 2px 0 rgba(0,0,0,0.5)'
+              }}>
+                {i + 1}
               </div>
             ))}
           </div>
 
           {/* Players Results */}
           <div>
-            {/* Player Headers */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: `repeat(${players.length}, 1fr)`,
-              gap: '14px',
-              marginBottom: '14px'
+              gridTemplateColumns: `repeat(${visiblePlayers.length}, 1fr)`,
+              gap: '3px', marginBottom: '3px'
             }}>
-              {players.map((player, i) => (
-                <div
-                  key={player}
-                  style={{
-                    background: `hsl(${i * 60}, 70%, 50%)`,
-                    color: 'white',
-                    fontWeight: '800',
-                    fontSize: '19px',
-                    padding: '20px',
-                    textAlign: 'center',
-                    borderRadius: '14px',
-                    boxShadow: '0 8px 25px rgba(0, 0, 0, 0.2)'
-                  }}
-                >
-                  {player}
-                </div>
-              ))}
+              {visiblePlayers.map((player) => {
+                const origIndex = playersList.findIndex(p => p.id === player.id);
+                return (
+                  <div key={player.id} style={{
+                    background: `hsl(${origIndex * 60}, 70%, 50%)`,
+                    color: 'white', fontWeight: '900',
+                    fontSize: isMobile ? '15px' : '19px',
+                    padding: isMobile ? '12px 6px' : '16px',
+                    textAlign: 'center', borderRadius: '0', textTransform: 'uppercase'
+                  }}>
+                    {player.name}
+                    {player.id === playerId && (
+                      <span style={{ fontSize: '11px', opacity: 0.7, display: 'block', marginTop: '2px' }}>
+                        (you)
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
             </div>
 
-            {/* Results Grid */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: `repeat(${players.length}, 1fr)`,
-              gap: '14px'
+              gridTemplateColumns: `repeat(${visiblePlayers.length}, 1fr)`,
+              gap: '3px'
             }}>
-              {Array.from({ length: rankingSize * players.length }).map((_, index) => {
-                const rankIndex = Math.floor(index / players.length);
-                const playerIndex = index % players.length;
-                const player = players[playerIndex];
-                const item = rankings[player][rankIndex];
+              {Array.from({ length: rankingSize * visiblePlayers.length }).map((_, index) => {
+                const rankIndex = Math.floor(index / visiblePlayers.length);
+                const visPlayerIndex = index % visiblePlayers.length;
+                const player = visiblePlayers[visPlayerIndex];
+                const item = rankings[player.id]?.[rankIndex];
 
                 return (
-                  <div
-                    key={`${player}-${rankIndex}`}
-                    style={{
-                      width: '100%',
-                      height: '140px',
-                      borderRadius: '14px',
-                      border: item ? '3px solid #e2e8f0' : '3px dashed #fca5a5',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      background: item
-                        ? 'linear-gradient(135deg, #f8fafc, #f1f5f9)'
-                        : 'linear-gradient(135deg, #fef2f2, #fee2e2)',
-                      boxShadow: item
-                        ? '0 8px 20px rgba(0, 0, 0, 0.12)'
-                        : '0 4px 12px rgba(252, 165, 165, 0.3)'
-                    }}
-                  >
+                  <div key={`${player.id}-${rankIndex}`} style={{
+                    width: '100%',
+                    height: isMobile ? '90px' : '120px',
+                    borderRadius: '0',
+                    border: item ? '1px solid #333' : '2px dashed #ff0044',
+                    display: 'flex', flexDirection: 'column',
+                    alignItems: 'center', justifyContent: 'center',
+                    background: item ? '#2a2a2a' : '#1a0a0a'
+                  }}>
                     {item ? (
                       <>
                         <img
-                          src={item.image}
-                          alt={item.name}
+                          src={item.image} alt={item.name}
                           style={{
-                            width: '100px',
-                            height: '100px',
-                            objectFit: 'cover',
-                            borderRadius: '12px',
-                            marginBottom: '8px',
-                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)'
+                            width: isMobile ? '55px' : '80px',
+                            height: isMobile ? '55px' : '80px',
+                            objectFit: 'cover', borderRadius: '0', marginBottom: '4px'
                           }}
                         />
                         <div style={{
-                          fontSize: '12px',
-                          fontWeight: '700',
-                          color: '#1e293b',
-                          textAlign: 'center',
-                          maxWidth: '90%'
+                          fontSize: isMobile ? '10px' : '12px',
+                          fontWeight: '800', color: '#ccc',
+                          textAlign: 'center', maxWidth: '90%',
+                          lineHeight: '1.2', overflow: 'hidden', textOverflow: 'ellipsis'
                         }}>
                           {item.name}
                         </div>
                       </>
                     ) : (
-                      <div style={{
-                        color: '#ef4444',
-                        fontSize: '14px',
-                        fontWeight: '600',
-                        textAlign: 'center'
-                      }}>
-                        Not selected
+                      <div style={{ color: '#ff0044', fontSize: isMobile ? '11px' : '13px', fontWeight: '800', textTransform: 'uppercase' }}>
+                        Empty
                       </div>
                     )}
                   </div>
@@ -192,23 +192,20 @@ export default function ResultsPhase({ players, rankings, selectedTopic, onReset
         </div>
       </div>
 
-      {/* New Game Button */}
+      {/* New Game */}
       <div style={{ textAlign: 'center' }}>
         <button
           style={{
-            padding: '22px 50px',
-            background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
-            color: 'white',
-            border: 'none',
-            borderRadius: '16px',
-            fontSize: '20px',
-            fontWeight: '800',
-            cursor: 'pointer',
-            boxShadow: '0 12px 40px rgba(139, 92, 246, 0.5)'
+            padding: isMobile ? '16px 36px' : '22px 50px',
+            background: '#ff00ff',
+            color: 'white', border: 'none', borderRadius: '0',
+            fontSize: isMobile ? '17px' : '20px', fontWeight: '900',
+            cursor: 'pointer', width: isMobile ? '100%' : 'auto',
+            maxWidth: '400px', textTransform: 'uppercase'
           }}
           onClick={onReset}
         >
-          Start New Ranking
+          New Ranking
         </button>
       </div>
     </div>
