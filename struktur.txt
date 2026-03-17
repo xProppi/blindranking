@@ -11,7 +11,6 @@
 │   ├── one-piece-characters.json
 │   ├── package.json
 │   └── serie.json
-├── database.rules.json
 ├── donwload.jsx
 ├── eslint.config.js
 ├── games
@@ -117,18 +116,19 @@
 │   │   └── usopp.jpg
 │   └── vite.svg
 ├── src
-│   ├── App.css
 │   ├── App.jsx
 │   ├── assets
 │   │   └── react.svg
 │   ├── components
 │   │   ├── GamePhase.jsx
+│   │   ├── HubPhase.jsx
 │   │   ├── LandingPhase.jsx
-│   │   ├── LobbyPhase.jsx
 │   │   └── ResultsPhase.jsx
 │   ├── constants
 │   │   └── config.js
 │   ├── firebase.js
+│   ├── hooks
+│   │   └── useIsMobile.js
 │   ├── index.css
 │   ├── main.jsx
 │   ├── sessionService.js
@@ -137,8 +137,9 @@
 │       ├── helpers.js
 │       └── topicsLoader.js
 ├── struktur.txt
+├── tochange
 ├── vite.config.js
 ├── x.html
 └── y.html
 
-13 directories, 129 files
+14 directories, 129 files

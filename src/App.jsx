@@ -28,13 +28,12 @@ function clearStorage() {
 }
 
 export default function App() {
-  const [appStep, setAppStep] = useState("landing"); // landing | Hub | game | results | reconnecting
+  const [appStep, setAppStep] = useState("landing"); // landing | lobby | game | results | reconnecting
   const [sessionCode, setSessionCode] = useState(null);
   const [playerId, setPlayerId] = useState(null);
   const [sessionData, setSessionData] = useState(null);
   const [isLocking, setIsLocking] = useState(false);
 
-  // isAdmin wird immer aus sessionData abgeleitet, nie lokal gesetzt
   const isAdmin = !!(sessionData && playerId && sessionData.adminId === playerId);
 
   // Reconnect beim Start
@@ -52,7 +51,6 @@ export default function App() {
     if (!sessionCode) return;
     const unsubscribe = listenToSession(sessionCode, (data) => {
       if (!data) {
-        // Session existiert nicht mehr
         clearStorage();
         resetGame();
         return;
@@ -66,7 +64,6 @@ export default function App() {
   useEffect(() => {
     if (!sessionData || !playerId) return;
 
-    // Spieler nicht mehr in der Session
     if (!sessionData.players?.[playerId]) {
       clearStorage();
       resetGame();
@@ -74,7 +71,7 @@ export default function App() {
     }
 
     const step = sessionData.step;
-    if (step === "Hub" || step === "game" || step === "results") {
+    if (step === "lobby" || step === "game" || step === "results") {
       setAppStep(step);
     }
   }, [sessionData, playerId]);
@@ -82,14 +79,14 @@ export default function App() {
   const onSessionCreated = ({ code, playerId: pid }) => {
     setSessionCode(code);
     setPlayerId(pid);
-    setAppStep("Hub");
+    setAppStep("lobby");
     saveToStorage(code, pid);
   };
 
   const onSessionJoined = ({ code, playerId: pid }) => {
     setSessionCode(code);
     setPlayerId(pid);
-    setAppStep("Hub");
+    setAppStep("lobby");
     saveToStorage(code, pid);
   };
 
@@ -116,10 +113,12 @@ export default function App() {
       setIsLocking(false);
     }
   };
+
   const handleEndSession = async () => {
     if (!isAdmin || !sessionCode) return;
     await endSession(sessionCode);
   };
+
   const resetGame = useCallback(() => {
     clearStorage();
     setAppStep("landing");
@@ -165,7 +164,7 @@ export default function App() {
     );
   }
 
-  if (appStep === "Hub") {
+  if (appStep === "lobby") {
     return (
       <HubPhase
         sessionCode={sessionCode}

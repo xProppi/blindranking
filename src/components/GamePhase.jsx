@@ -39,7 +39,7 @@ export default function GamePhase({
       padding: isMobile ? '12px' : '20px',
       fontFamily: "'Arial Black', Impact, system-ui, sans-serif"
     }}>
-      {/* Current Item Display */}
+      {/* Current Item Display - FIXED WIDTH */}
       <div style={{
         position: 'fixed',
         top: isMobile ? '8px' : '16px',
@@ -53,10 +53,11 @@ export default function GamePhase({
         display: 'flex',
         alignItems: 'center',
         gap: isMobile ? '10px' : '20px',
-        maxWidth: isMobile ? 'calc(100% - 24px)' : 'auto'
+        width: isMobile ? 'calc(100% - 24px)' : '600px',
+        maxWidth: isMobile ? 'calc(100% - 24px)' : '600px'
       }}>
         {!isMobile && (
-          <span style={{ fontSize: '14px', fontWeight: '900', color: '#888', textTransform: 'uppercase' }}>
+          <span style={{ fontSize: '14px', fontWeight: '900', color: '#888', textTransform: 'uppercase', flexShrink: 0 }}>
             Now placing:
           </span>
         )}
@@ -64,8 +65,8 @@ export default function GamePhase({
           src={currentItem.image}
           alt={currentItem.name}
           style={{
-            width: isMobile ? '44px' : '56px',
-            height: isMobile ? '44px' : '56px',
+            width: isMobile ? '60px' : '80px',
+            height: isMobile ? '60px' : '80px',
             objectFit: 'cover',
             borderRadius: '0',
             background: '#333',
@@ -79,7 +80,9 @@ export default function GamePhase({
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           whiteSpace: 'nowrap',
-          textTransform: 'uppercase'
+          textTransform: 'uppercase',
+          flex: 1,
+          minWidth: 0
         }}>
           {currentItem.name}
         </span>
@@ -108,7 +111,7 @@ export default function GamePhase({
       {isMobile && playersList.length > 1 && (
         <div style={{
           position: 'fixed',
-          top: isMobile ? '76px' : '100px',
+          top: isMobile ? '90px' : '100px',
           left: '50%',
           transform: 'translateX(-50%)',
           zIndex: 999,
@@ -176,8 +179,8 @@ export default function GamePhase({
         style={{
           maxWidth: '100%',
           margin: isMobile
-            ? (playersList.length > 1 ? '120px auto 0' : '90px auto 0')
-            : '100px auto 0',
+            ? (playersList.length > 1 ? '130px auto 0' : '100px auto 0')
+            : '120px auto 0',
           background: '#1a1a1a',
           borderRadius: '0',
           padding: isMobile ? '12px' : '24px',
@@ -204,7 +207,7 @@ export default function GamePhase({
               <div
                 key={i}
                 style={{
-                  height: isMobile ? '70px' : '90px',
+                  height: isMobile ? '100px' : '140px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -289,11 +292,12 @@ export default function GamePhase({
                     key={`${player.id}-${rankIndex}`}
                     style={{
                       width: '100%',
-                      height: isMobile ? '70px' : '90px',
+                      height: isMobile ? '100px' : '140px',
                       borderRadius: '0',
                       border: isSelected ? '3px solid #ffff00' : '1px solid #333',
                       cursor: (isFilled || !isMyColumn) ? 'not-allowed' : 'pointer',
                       display: 'flex',
+                      flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
                       fontSize: isMobile ? '11px' : '13px',
@@ -307,23 +311,38 @@ export default function GamePhase({
                             : '#222',
                       color: isSelected ? '#111' : isFilled ? '#888' : isMyColumn ? '#666' : '#444',
                       opacity: (!isFilled && !isMyColumn) ? 0.5 : 1,
-                      padding: 0,
+                      padding: '4px',
                       textTransform: 'uppercase'
                     }}
                     onClick={() => isMyColumn && !isFilled && onPickSlot(player.id, rankIndex)}
                     disabled={isFilled || !isMyColumn}
                   >
                     {isFilled ? (
-                      <img
-                        src={slotItem.image}
-                        alt={slotItem.name}
-                        style={{
-                          width: isMobile ? '52px' : '70px',
-                          height: isMobile ? '52px' : '70px',
-                          objectFit: 'cover',
-                          borderRadius: '0'
-                        }}
-                      />
+                      <>
+                        <img
+                          src={slotItem.image}
+                          alt={slotItem.name}
+                          style={{
+                            width: isMobile ? '70px' : '100px',
+                            height: isMobile ? '70px' : '100px',
+                            objectFit: 'cover',
+                            borderRadius: '0'
+                          }}
+                        />
+                        <div style={{
+                          fontSize: isMobile ? '9px' : '11px',
+                          fontWeight: '800',
+                          color: '#ccc',
+                          textAlign: 'center',
+                          marginTop: '2px',
+                          maxWidth: '100%',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                          whiteSpace: 'nowrap'
+                        }}>
+                          {slotItem.name}
+                        </div>
+                      </>
                     ) : isSelected ? (
                       <span style={{ fontWeight: '900' }}>SELECTED</span>
                     ) : (

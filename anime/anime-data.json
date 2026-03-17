@@ -51,11 +51,11 @@
     },
     {
       "name": "Sword Art Online",
-      "image": "./anime-images/sword-art-online.jpg"
+      "image": "./anime-images/swort-art-online.jpg"
     },
     {
       "name": "My Hero Academia",
-      "image": "./anime-images/my-hero-academia.jpg"
+      "image": "./anime-images/my-hero.jpg"
     },
     {
       "name": "Bleach",
@@ -83,15 +83,11 @@
     },
     {
       "name": "JoJo's Bizarre Adventure",
-      "image": "./anime-images/jojos-bizarre-adventure.jpg"
+      "image": "./anime-images/jojo.jpg"
     },
     {
       "name": "Assassination Classroom",
       "image": "./anime-images/assassination-classroom.jpg"
-    },
-    {
-      "name": "Dr. Stone",
-      "image": "./anime-images/dr-stone.jpg"
     },
     {
       "name": "Tokyo Revengers",
@@ -116,10 +112,6 @@
     {
       "name": "Dragon Ball Super",
       "image": "./anime-images/dragon-ball-super.jpg"
-    },
-    {
-      "name": "Death Parade",
-      "image": "./anime-images/death-parade.jpg"
     },
     {
       "name": "The Seven Deadly Sins",
@@ -156,10 +148,6 @@
     {
       "name": "Berserk",
       "image": "./anime-images/berserk.jpg"
-    },
-    {
-      "name": "Black Butler",
-      "image": "./anime-images/black-butler.jpg"
     },
     {
       "name": "Blue Exorcist",

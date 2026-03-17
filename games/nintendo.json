@@ -2,123 +2,119 @@
   "games": [
     {
       "name": "Wii Sports",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wzo.jpg"
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2maz.jpg"
     },
     {
-      "name": "Super Mario Bros.",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3mvr.jpg"
-    },
-    {
-      "name": "Mario Kart 8 / Deluxe",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p1i.jpg"
-    },
-    {
-      "name": "Wii Sports Resort",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wx5.jpg"
-    },
-    {
-      "name": "Pokémon Red/Blue/Green",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co49vj.jpg"
-    },
-    {
-      "name": "Tetris (Game Boy)",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co49vz.jpg"
-    },
-    {
-      "name": "New Super Mario Bros.",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1vr9.jpg"
-    },
-    {
-      "name": "New Super Mario Bros. Wii",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1vrc.jpg"
+      "name": "Mario Kart 8 Deluxe",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ydc.jpg"
     },
     {
       "name": "Animal Crossing: New Horizons",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s6d.jpg"
-    },
-    {
-      "name": "Super Mario World",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3mvs.jpg"
-    },
-    {
-      "name": "Super Smash Bros. Ultimate",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1rbo.jpg"
-    },
-    {
-      "name": "Pokémon Gold/Silver",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4zcg.jpg"
-    },
-    {
-      "name": "The Legend of Zelda: Breath of the Wild",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.jpg"
-    },
-    {
-      "name": "Wii Play",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1y6p.jpg"
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3wls.jpg"
     },
     {
       "name": "Mario Kart Wii",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1vg0.jpg"
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ycm.jpg"
     },
     {
-      "name": "Pokémon Diamond/Pearl",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1x0t.jpg"
+      "name": "Super Smash Bros. Ultimate",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2255.jpg"
     },
     {
-      "name": "Super Mario Bros. 3",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3mvp.jpg"
+      "name": "Wii Sports Resort",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2may.jpg"
     },
     {
-      "name": "Pokémon Sword/Shield",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1u87.jpg"
+      "name": "The Legend of Zelda: Breath of the Wild",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co67oa.jpg"
     },
     {
-      "name": "Mario Kart DS",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1vfx.jpg"
+      "name": "New Super Mario Bros.",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co21ts.jpg"
     },
     {
-      "name": "Super Mario 64",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co49vo.jpg"
+      "name": "New Super Mario Bros. Wii",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/cobrmo.jpg"
     },
     {
-      "name": "Wii Fit / Wii Fit Plus",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wxz.jpg"
-    },
-    {
-      "name": "Nintendogs",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co20xn.jpg"
-    },
-    {
-      "name": "Pokémon Ruby/Sapphire",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5z5t.jpg"
-    },
-    {
-      "name": "Super Mario Galaxy",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1vjq.jpg"
-    },
-    {
-      "name": "Super Mario Land",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3vmx.jpg"
+      "name": "Wii Play",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2cnl.jpg"
     },
     {
       "name": "Super Mario Odyssey",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2w.jpg"
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co63jd.jpg"
     },
     {
-      "name": "Pokémon Sun/Moon",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co27ll.jpg"
+      "name": "Pokémon Sword",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lj2.jpg"
     },
     {
-      "name": "Pokémon Scarlet/Violet",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s81.jpg"
+      "name": "Pokémon Scarlet",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5sfi.jpg"
+    },
+    {
+      "name": "Mario Kart DS",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/cob9rx.jpg"
+    },
+    {
+      "name": "Wii Fit",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co86ml.jpg"
+    },
+    {
+      "name": "Wii Fit Plus",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co86mm.jpg"
+    },
+    {
+      "name": "Super Mario Party",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/cobaa9.jpg"
     },
     {
       "name": "The Legend of Zelda: Tears of the Kingdom",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vmg.jpg"
     },
     {
-      "name": "Super Smash Bros. Brawl",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1vgh.jpg"
+      "name": "Brain Age: Train Your Brain in Minutes a Day!",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5p93.jpg"
+    },
+    {
+      "name": "Mario Kart 7",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2146.jpg"
+    },
+    {
+      "name": "Pokémon Diamond",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5to9.jpg"
+    },
+    {
+      "name": "New Super Mario Bros. U Deluxe",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1uhl.jpg"
+    },
+    {
+      "name": "Pokémon X",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1z8y.jpg"
+    },
+    {
+      "name": "Pokémon Sun",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3co7.jpg"
+    },
+    {
+      "name": "Pokémon Black Version",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1z8d.jpg"
+    },
+    {
+      "name": "Ring Fit Adventure",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/cobcnq.jpg"
+    },
+    {
+      "name": "Pokémon: Let's Go, Pikachu!",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1zjy.jpg"
+    },
+    {
+      "name": "Pokémon Brilliant Diamond",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3b9t.jpg"
+    },
+    {
+      "name": "Brain Age 2: More Training in Minutes a Day!",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2whx.jpg"
     }
   ]
 }
