@@ -86,7 +86,7 @@ export default function LandingPhase({ onSessionCreated, onSessionJoined }) {
             Blindranking
           </h1>
           <p style={{ fontSize: isMobile ? "0.95rem" : "1.1rem", color: "#888", fontWeight: "700" }}>
-            Rank together with friends in real time
+            Gewinner kriegt 1000 Kcal
           </p>
         </div>
 
@@ -156,19 +156,19 @@ export default function LandingPhase({ onSessionCreated, onSessionJoined }) {
 
             <div>
               <h2 style={{ fontSize: "1.2rem", fontWeight: "900", color: "#fff", marginBottom: "12px", textTransform: "uppercase" }}>
-                Your name
+                Dein Name
               </h2>
               <input
                 style={{ ...inputStyle, maxWidth: "400px" }}
                 value={adminName}
                 onChange={e => setAdminName(e.target.value)}
-                placeholder="Enter your name..."
+                placeholder="Gib deinen Namen ein..."
                 onKeyDown={e => e.key === "Enter" && handleCreate()}
               />
             </div>
 
             <h2 style={{ fontSize: "1.2rem", fontWeight: "900", color: "#fff", margin: "24px 0 12px", textTransform: "uppercase" }}>
-              Choose Topic
+              Themenauswahl
             </h2>
             <div style={{
               display: "grid",
@@ -228,7 +228,7 @@ export default function LandingPhase({ onSessionCreated, onSessionJoined }) {
                 onClick={handleCreate}
                 disabled={!adminName.trim() || !selectedTopic || loading}
               >
-                {loading ? "Creating..." : "Create Session"}
+                {loading ? "Creating..." : "Session erstellen"}
               </button>
             </div>
           </div>
@@ -270,13 +270,13 @@ export default function LandingPhase({ onSessionCreated, onSessionJoined }) {
 
               <div style={{ marginBottom: "24px" }}>
                 <label style={{ display: "block", fontWeight: "900", color: "#fff", marginBottom: "8px", fontSize: "15px", textTransform: "uppercase" }}>
-                  Your name
+                  Dein Name
                 </label>
                 <input
                   style={inputStyle}
                   value={joinName}
                   onChange={e => setJoinName(e.target.value)}
-                  placeholder="Enter your name..."
+                  placeholder="Gib deinen Namen ein..."
                   onKeyDown={e => e.key === "Enter" && handleJoin()}
                 />
               </div>

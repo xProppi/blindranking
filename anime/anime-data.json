@@ -62,8 +62,20 @@
       "image": "./anime-images/bleach.jpg"
     },
     {
+      "name": "Sololeveling",
+      "image": "./anime-images/sololeveling.jpg"
+    },
+    {
       "name": "One Punch Man",
       "image": "./anime-images/one-punch-man.jpg"
+    },
+    {
+      "name": "Chainsaw Man",
+      "image": "./anime-images/chainsawman.jpg"
+    },
+    {
+      "name": "Hells Paradise",
+      "image": "./anime-images/hellsparadise.jpg"
     },
     {
       "name": "Naruto",
@@ -114,6 +126,10 @@
       "image": "./anime-images/dragon-ball-super.jpg"
     },
     {
+      "name": "Baki",
+      "image": "./anime-images/baki.jpg"
+    },
+    {
       "name": "The Seven Deadly Sins",
       "image": "./anime-images/the-seven-deadly-sins.jpg"
     },
@@ -152,6 +168,10 @@
     {
       "name": "Blue Exorcist",
       "image": "./anime-images/blue-exorcist.jpg"
+    },
+    {
+      "name": "Blue Lock",
+      "image": "./anime-images/bluelock.jpg"
     },
     {
       "name": "Fullmetal Alchemist",

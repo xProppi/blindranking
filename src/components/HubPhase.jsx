@@ -60,7 +60,7 @@ export default function HubPhase({ sessionCode, sessionData, isAdmin, playerId }
           marginBottom: "6px",
           textTransform: "uppercase"
         }}>
-          Hub
+          
         </h1>
         <p style={{ color: "#888", fontSize: "15px", marginBottom: "36px", fontWeight: "700" }}>
           Topic: <strong style={{ color: "#ff00ff" }}>{sessionData?.topic}</strong>
@@ -192,7 +192,7 @@ export default function HubPhase({ sessionCode, sessionData, isAdmin, playerId }
             onClick={handleStart}
             disabled={players.length < 1 || starting}
           >
-            {starting ? "Starting..." : "Start Game"}
+            {starting ? "Starting..." : "Spiel Starten"}
           </button>
         ) : (
           <div style={{
