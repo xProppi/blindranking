@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { createSession, joinSession } from "../sessionService";
-import { loadTopicsData } from "../utils/topicsLoader";
+import { loadTopicsGrouped } from "../utils/topicsLoader";
 import useIsMobile from "../hooks/useIsMobile";
 
 export default function LandingPhase({ onSessionCreated, onSessionJoined }) {
   const [mode, setMode] = useState(null);
   const [adminName, setAdminName] = useState("");
+  // { groupIdx, topicKey } statt nur string
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [joinCode, setJoinCode] = useState("");
   const [joinName, setJoinName] = useState("");
@@ -13,16 +14,30 @@ export default function LandingPhase({ onSessionCreated, onSessionJoined }) {
   const [error, setError] = useState("");
   const isMobile = useIsMobile();
 
-  const topics = loadTopicsData();
+  const groups = loadTopicsGrouped();
+
+  const [expandedGroups, setExpandedGroups] = useState(
+    () => Object.fromEntries(groups.map((_, i) => [i, false]))
+  );
+
+  const toggleGroup = (idx) => {
+    setExpandedGroups(prev => ({ ...prev, [idx]: !prev[idx] }));
+  };
+
+  const getSelectedItems = () => {
+    if (!selectedTopic) return null;
+    return groups[selectedTopic.groupIdx].topics[selectedTopic.topicKey];
+  };
 
   const handleCreate = async () => {
     if (!adminName.trim() || !selectedTopic) return;
     setLoading(true);
     setError("");
     try {
-      const poolItems = topics[selectedTopic];
-      const result = await createSession(selectedTopic, adminName.trim(), poolItems);
-      onSessionCreated({ code: result.code, playerId: result.playerId, topic: selectedTopic });
+      const poolItems = getSelectedItems();
+      const displayName = selectedTopic.topicKey;
+      const result = await createSession(displayName, adminName.trim(), poolItems);
+      onSessionCreated({ code: result.code, playerId: result.playerId, topic: displayName });
     } catch (e) {
       setError(e.message);
       setLoading(false);
@@ -42,6 +57,10 @@ export default function LandingPhase({ onSessionCreated, onSessionJoined }) {
     }
   };
 
+  const isSelected = (groupIdx, topicKey) => {
+    return selectedTopic?.groupIdx === groupIdx && selectedTopic?.topicKey === topicKey;
+  };
+
   const inputStyle = {
     width: "100%",
     padding: "14px 16px",
@@ -54,6 +73,77 @@ export default function LandingPhase({ onSessionCreated, onSessionJoined }) {
     background: "#222",
     color: "#fff",
   };
+
+  const renderTopicButtons = (groupTopics, groupIdx) => {
+    const keys = Object.keys(groupTopics);
+    if (keys.length === 0) return null;
+    return (
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: isMobile
+          ? "repeat(auto-fill, minmax(150px, 1fr))"
+          : "repeat(auto-fill, minmax(200px, 1fr))",
+        gap: "6px",
+        marginTop: "6px"
+      }}>
+        {keys.map(topic => {
+          const active = isSelected(groupIdx, topic);
+          return (
+            <button
+              key={topic}
+              style={{
+                textAlign: "left",
+                padding: isMobile ? "12px 14px" : "14px 18px",
+                borderRadius: "0",
+                border: active ? "3px solid #22cc22" : "2px solid #333",
+                cursor: "pointer",
+                fontSize: "14px",
+                fontWeight: "800",
+                background: active ? "#22cc22" : "#222",
+                color: "#fff"
+              }}
+              onClick={() => setSelectedTopic({ groupIdx, topicKey: topic })}
+            >
+              <div>{topic}</div>
+              <div style={{ fontSize: "12px", opacity: 0.6, marginTop: "4px" }}>
+                {groupTopics[topic].length} items
+              </div>
+            </button>
+          );
+        })}
+      </div>
+    );
+  };
+
+  const renderGroupHeader = (label, idx, color) => (
+    <button
+      onClick={() => toggleGroup(idx)}
+      style={{
+        width: "100%",
+        textAlign: "left",
+        padding: "12px 18px",
+        background: "#2a2a2a",
+        border: "2px solid #444",
+        borderRadius: "0",
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        color: color,
+        fontSize: "15px",
+        fontWeight: "900",
+        textTransform: "uppercase",
+        letterSpacing: "1px"
+      }}
+    >
+      <span>{label}</span>
+      <span style={{
+        transform: expandedGroups[idx] ? "rotate(180deg)" : "rotate(0deg)",
+        transition: "transform 0.2s",
+        fontSize: "12px"
+      }}>&#9660;</span>
+    </button>
+  );
 
   return (
     <div style={{
@@ -170,38 +260,17 @@ export default function LandingPhase({ onSessionCreated, onSessionJoined }) {
             <h2 style={{ fontSize: "1.2rem", fontWeight: "900", color: "#fff", margin: "24px 0 12px", textTransform: "uppercase" }}>
               Themenauswahl
             </h2>
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: isMobile
-                ? "repeat(auto-fill, minmax(150px, 1fr))"
-                : "repeat(auto-fill, minmax(200px, 1fr))",
-              gap: "6px",
-              maxHeight: "300px",
-              overflowY: "auto",
-              paddingRight: "4px"
-            }}>
-              {Object.keys(topics).map(topic => (
-                <button
-                  key={topic}
-                  style={{
-                    textAlign: "left",
-                    padding: isMobile ? "12px 14px" : "14px 18px",
-                    borderRadius: "0",
-                    border: selectedTopic === topic ? "3px solid #22cc22" : "2px solid #333",
-                    cursor: "pointer",
-                    fontSize: "14px",
-                    fontWeight: "800",
-                    background: selectedTopic === topic ? "#22cc22" : "#222",
-                    color: "#fff"
-                  }}
-                  onClick={() => setSelectedTopic(topic)}
-                >
-                  <div>{topic}</div>
-                  <div style={{ fontSize: "12px", opacity: 0.6, marginTop: "4px" }}>
-                    {topics[topic].length} items
+            <div style={{ maxHeight: "400px", overflowY: "auto", paddingRight: "4px" }}>
+              {groups.map((group, idx) => {
+                const keys = Object.keys(group.topics);
+                if (keys.length === 0) return null;
+                return (
+                  <div key={idx} style={{ marginBottom: "12px" }}>
+                    {renderGroupHeader(`${group.name} (${keys.length})`, idx, group.color)}
+                    {expandedGroups[idx] && renderTopicButtons(group.topics, idx)}
                   </div>
-                </button>
-              ))}
+                );
+              })}
             </div>
 
             {error && (

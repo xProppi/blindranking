@@ -6,7 +6,6 @@ import GamePhase from "./components/GamePhase";
 import ResultsPhase from "./components/ResultsPhase";
 import { RANKING_SIZE } from "./constants/config";
 import { listenToSession, pickSlot, lockIn, skipItem, endSession, resetSession } from "./sessionService";
-import { loadTopicsData } from "./utils/topicsLoader";
 
 const STORAGE_KEY = 'blindranking_session';
 
@@ -131,10 +130,10 @@ export default function App() {
   };
 
   const handlePlayAgain = async () => {
-    if (!isAdmin || !sessionCode || !sessionData?.topic) return;
-    const topics = loadTopicsData();
-    const poolItems = topics[sessionData.topic];
-    if (!poolItems) return;
+    if (!isAdmin || !sessionCode || !sessionData?.pool) return;
+    const poolItems = Array.isArray(sessionData.pool)
+      ? sessionData.pool
+      : Object.values(sessionData.pool);
     await resetSession(sessionCode, poolItems);
   };
 
