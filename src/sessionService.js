@@ -117,7 +117,6 @@ export async function lockIn(code, sessionData) {
     }
   });
 
-  // Pruefen ob noch leere Slots uebrig sind (nach diesem Pick)
   const hasEmptySlots = Object.keys(players).some(playerId => {
     const playerRanking = rankings[playerId] || {};
     const slotIndex = picks[playerId];
@@ -133,7 +132,6 @@ export async function lockIn(code, sessionData) {
     : [];
   const newPool = pool.filter(item => item.name !== currentItem.name);
 
-  // Picks zuruecksetzen
   Object.keys(players).forEach(id => { updates[`picks/${id}`] = null; });
 
   if (hasEmptySlots && newPool.length > 0) {
@@ -174,6 +172,30 @@ export async function skipItem(code, sessionData) {
 
   await update(ref(db, `sessions/${code}`), updates);
 }
+
 export async function endSession(code) {
   await remove(ref(db, `sessions/${code}`));
+}
+
+export async function resetSession(code, poolItems) {
+  const snapshot = await get(ref(db, `sessions/${code}`));
+  if (!snapshot.exists()) return;
+
+  const session = snapshot.val();
+  const players = session.players || {};
+
+  const updates = {
+    step: 'lobby',
+    currentItem: null,
+    pool: poolItems,
+  };
+
+  Object.keys(players).forEach(pid => {
+    const initialRanking = {};
+    for (let i = 0; i < RANKING_SIZE; i++) { initialRanking[i] = null; }
+    updates[`rankings/${pid}`] = initialRanking;
+    updates[`picks/${pid}`] = null;
+  });
+
+  await update(ref(db, `sessions/${code}`), updates);
 }

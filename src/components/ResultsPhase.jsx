@@ -2,7 +2,7 @@ import { useState } from "react";
 import { getRankColor } from "../utils/helpers";
 import useIsMobile from "../hooks/useIsMobile";
 
-export default function ResultsPhase({ playersList, rankings, selectedTopic, onReset, rankingSize, playerId }) {
+export default function ResultsPhase({ playersList, rankings, selectedTopic, onReset, onPlayAgain, isAdmin, rankingSize, playerId }) {
   const isMobile = useIsMobile();
   const [showAllPlayers, setShowAllPlayers] = useState(!isMobile);
 
@@ -192,20 +192,35 @@ export default function ResultsPhase({ playersList, rankings, selectedTopic, onR
         </div>
       </div>
 
-      {/* New Game */}
-      <div style={{ textAlign: 'center' }}>
+      {/* Buttons */}
+      <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+        {isAdmin && onPlayAgain && (
+          <button
+            style={{
+              padding: isMobile ? '16px 36px' : '22px 50px',
+              background: '#22cc22',
+              color: 'white', border: 'none', borderRadius: '0',
+              fontSize: isMobile ? '17px' : '20px', fontWeight: '900',
+              cursor: 'pointer', width: isMobile ? '100%' : 'auto',
+              maxWidth: '400px', textTransform: 'uppercase'
+            }}
+            onClick={onPlayAgain}
+          >
+            Play Again
+          </button>
+        )}
         <button
           style={{
-            padding: isMobile ? '16px 36px' : '22px 50px',
-            background: '#ff00ff',
-            color: 'white', border: 'none', borderRadius: '0',
-            fontSize: isMobile ? '17px' : '20px', fontWeight: '900',
+            padding: isMobile ? '12px 28px' : '16px 40px',
+            background: '#333',
+            color: '#888', border: '2px solid #555', borderRadius: '0',
+            fontSize: isMobile ? '14px' : '16px', fontWeight: '900',
             cursor: 'pointer', width: isMobile ? '100%' : 'auto',
             maxWidth: '400px', textTransform: 'uppercase'
           }}
           onClick={onReset}
         >
-          New Ranking
+          New Session
         </button>
       </div>
     </div>

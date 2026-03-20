@@ -1,11 +1,12 @@
 // src/App.jsx
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import LandingPhase from "./components/LandingPhase";
 import HubPhase from "./components/HubPhase";
 import GamePhase from "./components/GamePhase";
 import ResultsPhase from "./components/ResultsPhase";
 import { RANKING_SIZE } from "./constants/config";
-import { listenToSession, pickSlot, lockIn, skipItem, endSession } from "./sessionService";
+import { listenToSession, pickSlot, lockIn, skipItem, endSession, resetSession } from "./sessionService";
+import { loadTopicsData } from "./utils/topicsLoader";
 
 const STORAGE_KEY = 'blindranking_session';
 
@@ -28,11 +29,13 @@ function clearStorage() {
 }
 
 export default function App() {
-  const [appStep, setAppStep] = useState("landing"); // landing | lobby | game | results | reconnecting
+  const [appStep, setAppStep] = useState("landing");
   const [sessionCode, setSessionCode] = useState(null);
   const [playerId, setPlayerId] = useState(null);
   const [sessionData, setSessionData] = useState(null);
   const [isLocking, setIsLocking] = useState(false);
+
+  const sessionActiveRef = useRef(false);
 
   const isAdmin = !!(sessionData && playerId && sessionData.adminId === playerId);
 
@@ -48,8 +51,13 @@ export default function App() {
 
   // Firebase Listener
   useEffect(() => {
-    if (!sessionCode) return;
+    if (!sessionCode) {
+      sessionActiveRef.current = false;
+      return;
+    }
+    sessionActiveRef.current = true;
     const unsubscribe = listenToSession(sessionCode, (data) => {
+      if (!sessionActiveRef.current) return;
       if (!data) {
         clearStorage();
         resetGame();
@@ -57,7 +65,10 @@ export default function App() {
       }
       setSessionData(data);
     });
-    return unsubscribe;
+    return () => {
+      sessionActiveRef.current = false;
+      unsubscribe();
+    };
   }, [sessionCode]);
 
   // appStep aus sessionData.step ableiten
@@ -119,7 +130,16 @@ export default function App() {
     await endSession(sessionCode);
   };
 
+  const handlePlayAgain = async () => {
+    if (!isAdmin || !sessionCode || !sessionData?.topic) return;
+    const topics = loadTopicsData();
+    const poolItems = topics[sessionData.topic];
+    if (!poolItems) return;
+    await resetSession(sessionCode, poolItems);
+  };
+
   const resetGame = useCallback(() => {
+    sessionActiveRef.current = false;
     clearStorage();
     setAppStep("landing");
     setSessionCode(null);
@@ -200,6 +220,8 @@ export default function App() {
         rankings={rankings}
         selectedTopic={sessionData?.topic}
         onReset={resetGame}
+        onPlayAgain={handlePlayAgain}
+        isAdmin={isAdmin}
         rankingSize={RANKING_SIZE}
         playerId={playerId}
       />
