@@ -129,13 +129,10 @@ export default function App() {
     await endSession(sessionCode);
   };
 
-  const handlePlayAgain = async () => {
-    if (!isAdmin || !sessionCode || !sessionData?.pool) return;
-    const poolItems = Array.isArray(sessionData.pool)
-      ? sessionData.pool
-      : Object.values(sessionData.pool);
-    await resetSession(sessionCode, poolItems);
-  };
+const handlePlayAgain = async () => {
+  if (!isAdmin || !sessionCode) return;
+  await resetSession(sessionCode);
+};
 
   const resetGame = useCallback(() => {
     sessionActiveRef.current = false;

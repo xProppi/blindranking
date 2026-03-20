@@ -2,30 +2,50 @@ import { useState } from "react";
 import { startGame } from "../sessionService";
 import { getPlayerColor } from "../utils/helpers";
 import { MAX_PLAYERS } from "../constants/config";
+import { loadTopicsGrouped } from "../utils/topicsLoader";
 import useIsMobile from "../hooks/useIsMobile";
 
 export default function HubPhase({ sessionCode, sessionData, isAdmin, playerId }) {
   const [starting, setStarting] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [showTopicPicker, setShowTopicPicker] = useState(false);
+  const [expandedGroups, setExpandedGroups] = useState({});
+  // lokale Topic-Auswahl (ueberschreibt Firebase-Topic wenn gesetzt)
+  const [localTopic, setLocalTopic] = useState(null);
   const isMobile = useIsMobile();
+
+  const groups = loadTopicsGrouped();
 
   const players = sessionData?.players
     ? Object.entries(sessionData.players).map(([id, p]) => ({ id, ...p }))
     : [];
 
-  const pool = sessionData?.pool
-    ? (Array.isArray(sessionData.pool) ? sessionData.pool : Object.values(sessionData.pool))
-    : [];
+  // aktives Topic + Pool bestimmen
+  const activeTopic = localTopic?.topicKey || sessionData?.topic;
+  const activePool = localTopic
+    ? groups[localTopic.groupIdx].topics[localTopic.topicKey]
+    : sessionData?.pool
+      ? (Array.isArray(sessionData.pool) ? sessionData.pool : Object.values(sessionData.pool))
+      : [];
 
   const handleStart = async () => {
-    if (pool.length === 0) return;
+    if (activePool.length === 0) return;
     setStarting(true);
     try {
-      await startGame(sessionCode, pool);
+      await startGame(sessionCode, activeTopic, activePool);
     } catch (e) {
       console.error(e);
       setStarting(false);
     }
+  };
+
+  const handleSelectTopic = (groupIdx, topicKey) => {
+    setLocalTopic({ groupIdx, topicKey });
+    setShowTopicPicker(false);
+  };
+
+  const toggleGroup = (idx) => {
+    setExpandedGroups(prev => ({ ...prev, [idx]: !prev[idx] }));
   };
 
   const copyCode = () => {
@@ -62,9 +82,107 @@ export default function HubPhase({ sessionCode, sessionData, isAdmin, playerId }
         }}>
           
         </h1>
-        <p style={{ color: "#888", fontSize: "15px", marginBottom: "36px", fontWeight: "700" }}>
-          Topic: <strong style={{ color: "#ff00ff" }}>{sessionData?.topic}</strong>
-        </p>
+        <div style={{ color: "#888", fontSize: "15px", marginBottom: "36px", fontWeight: "700" }}>
+          Topic: <strong style={{ color: "#ff00ff" }}>{activeTopic}</strong>
+          {isAdmin && (
+            <button
+              onClick={() => setShowTopicPicker(!showTopicPicker)}
+              style={{
+                marginLeft: "12px",
+                padding: "4px 12px",
+                background: "#333",
+                border: "2px solid #555",
+                borderRadius: "0",
+                fontSize: "12px",
+                fontWeight: "800",
+                color: "#ffff00",
+                cursor: "pointer",
+                textTransform: "uppercase"
+              }}
+            >
+              {showTopicPicker ? "Schliessen" : "Aendern"}
+            </button>
+          )}
+        </div>
+
+        {/* Topic Picker */}
+        {showTopicPicker && isAdmin && (
+          <div style={{
+            background: "#222",
+            border: "2px solid #444",
+            padding: "16px",
+            marginBottom: "24px",
+            maxHeight: "300px",
+            overflowY: "auto",
+            textAlign: "left"
+          }}>
+            {groups.map((group, idx) => {
+              const keys = Object.keys(group.topics);
+              if (keys.length === 0) return null;
+              return (
+                <div key={idx} style={{ marginBottom: "8px" }}>
+                  <button
+                    onClick={() => toggleGroup(idx)}
+                    style={{
+                      width: "100%",
+                      textAlign: "left",
+                      padding: "10px 14px",
+                      background: "#2a2a2a",
+                      border: "2px solid #444",
+                      borderRadius: "0",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      color: group.color,
+                      fontSize: "13px",
+                      fontWeight: "900",
+                      textTransform: "uppercase",
+                      letterSpacing: "1px"
+                    }}
+                  >
+                    <span>{group.name} ({keys.length})</span>
+                    <span style={{
+                      transform: expandedGroups[idx] ? "rotate(180deg)" : "rotate(0deg)",
+                      transition: "transform 0.2s",
+                      fontSize: "10px"
+                    }}>&#9660;</span>
+                  </button>
+                  {expandedGroups[idx] && (
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4px", marginTop: "4px" }}>
+                      {keys.map(topic => {
+                        const isActive = activeTopic === topic &&
+                          (!localTopic || localTopic.groupIdx === idx);
+                        return (
+                          <button
+                            key={`${idx}-${topic}`}
+                            style={{
+                              textAlign: "left",
+                              padding: "10px 12px",
+                              borderRadius: "0",
+                              border: isActive ? "2px solid #22cc22" : "2px solid #333",
+                              cursor: "pointer",
+                              fontSize: "12px",
+                              fontWeight: "800",
+                              background: isActive ? "#22cc22" : "#1a1a1a",
+                              color: "#fff"
+                            }}
+                            onClick={() => handleSelectTopic(idx, topic)}
+                          >
+                            <div>{topic}</div>
+                            <div style={{ fontSize: "11px", opacity: 0.6, marginTop: "2px" }}>
+                              {group.topics[topic].length} items
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
 
         {/* Session Code */}
         <div style={{

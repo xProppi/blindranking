@@ -4,12 +4,8 @@ import { ref, set, get, onValue, update, remove } from 'firebase/database';
 import { RANKING_SIZE, MAX_PLAYERS } from './constants/config';
 
 export function generateSessionCode() {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-  let code = '';
-  for (let i = 0; i < 6; i++) {
-    code += chars[Math.floor(Math.random() * chars.length)];
-  }
-  return code;
+  const num = Math.floor(Math.random() * 1000);
+  return String(num).padStart(3, '0');
 }
 
 async function generateUniqueSessionCode() {
@@ -20,7 +16,7 @@ async function generateUniqueSessionCode() {
     const snapshot = await get(ref(db, `sessions/${code}`));
     if (!snapshot.exists()) return code;
     attempts++;
-  } while (attempts < 10);
+  } while (attempts < 20);
   throw new Error('Could not generate unique session code');
 }
 
@@ -78,13 +74,14 @@ export function listenToSession(code, callback) {
   });
 }
 
-export async function startGame(code, poolItems) {
+export async function startGame(code, topic, poolItems) {
   const pool = Array.isArray(poolItems) ? poolItems : Object.values(poolItems);
   const randomItem = pool[Math.floor(Math.random() * pool.length)];
   const newPool = pool.filter(item => item.name !== randomItem.name);
 
   await update(ref(db, `sessions/${code}`), {
     step: 'game',
+    topic,
     currentItem: randomItem,
     pool: newPool
   });
@@ -177,7 +174,7 @@ export async function endSession(code) {
   await remove(ref(db, `sessions/${code}`));
 }
 
-export async function resetSession(code, poolItems) {
+export async function resetSession(code) {
   const snapshot = await get(ref(db, `sessions/${code}`));
   if (!snapshot.exists()) return;
 
@@ -187,7 +184,6 @@ export async function resetSession(code, poolItems) {
   const updates = {
     step: 'lobby',
     currentItem: null,
-    pool: poolItems,
   };
 
   Object.keys(players).forEach(pid => {
